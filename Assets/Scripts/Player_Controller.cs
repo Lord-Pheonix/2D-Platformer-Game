@@ -4,39 +4,82 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
-    public Animator animator;
-
+    //private dataMember
     Rigidbody2D rb;
-    float speed;
-    //bool isrunning = false;
-    //bool iscrouch = false;
+    Animator animator;
+    [SerializeField] Transform groundCheckCollider;
+    [SerializeField] LayerMask groundLayer;
+
+
+    float HorizontalDirection;
+    float speed = 1f;
+    float SpeedModifier = 3f;
+    const float groundCheckRadius = 0.4f;
+
+    bool facingRight = true;
+    bool isRunning = false;
+    [SerializeField] bool isgrounded = false;
+
+    //public dataMember
+    
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
-        speed = Input.GetAxisRaw("Horizontal");
-        animator.SetFloat("Speed", Mathf.Abs(speed));
+        HorizontalDirection = Input.GetAxisRaw("Horizontal");
+
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isRunning = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isRunning = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        movement(HorizontalDirection);
+        GroundCheck();
+    }
+
+    void GroundCheck()
+    {
+        isgrounded = false;
+        
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundCheckRadius, groundLayer);
+        if (colliders.Length > 0)
+            isgrounded = true;
+    }
+
+    void movement(float direction)
+    {
+        float speedcontroller = direction * speed * 100 * Time.fixedDeltaTime;
+
+        if (isRunning)
+            speedcontroller *= SpeedModifier;
+
+        Vector2 targetVelocity = new Vector2(speedcontroller, rb.velocity.y);
+        rb.velocity = targetVelocity;
 
         Vector3 scale = transform.localScale;
-        if (speed < 0)
+        if (facingRight && HorizontalDirection < 0)
         {
             scale.x = -1f * Mathf.Abs(scale.x);
+            facingRight = false;
         }
-        else if (speed > 0)
+        else if (!facingRight && HorizontalDirection > 0)
         {
             scale.x = Mathf.Abs(scale.x);
+            facingRight = true;
         }
         transform.localScale = scale;
 
-        bool jump = Input.GetButton("Jump");
-        animator.SetBool("jump", jump);
-
-
-        bool crouch = Input.GetButton("crouch");
-        animator.SetBool("crouch", crouch);
-
-    }
+        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+    } 
 }
