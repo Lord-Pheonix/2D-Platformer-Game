@@ -305,7 +305,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.08531508}
+  m_Offset: {x: 0, y: -0.100209445}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -316,7 +316,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.82936984}
+  m_Size: {x: 1, y: 0.7995811}
   m_EdgeRadius: 0
 --- !u!1 &490554598
 GameObject:
@@ -392,6 +392,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  jumpPower: 250
   isgrounded: 0
 --- !u!70 &1291067083
 CapsuleCollider2D:
@@ -402,7 +403,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 1291067073}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b8e58eb9041b2114987943bfbac1883d, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -470,7 +471,7 @@ PrefabInstance:
     - target: {fileID: 7143497672825038403, guid: e2864f47db2a6664692787964cd58ea6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.228
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 7143497672825038403, guid: e2864f47db2a6664692787964cd58ea6,
         type: 3}
