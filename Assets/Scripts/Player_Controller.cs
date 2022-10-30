@@ -7,20 +7,25 @@ public class Player_Controller : MonoBehaviour
     //private dataMember
     Rigidbody2D rb;
     Animator animator;
+    [SerializeField] Collider2D standingCollider;
     [SerializeField] Transform groundCheckCollider;
+    [SerializeField] Transform overheadCheckCollider;
     [SerializeField] LayerMask groundLayer;
 
 
     float HorizontalDirection;
     float speed = 1f;
-    float SpeedModifier = 3f;
+    float runSpeedModifier = 4f;
+    float crouchSpeedModifier = 0.5f;
     [SerializeField] float jumpPower = 1f;
     const float groundCheckRadius = 0.4f;
+    const float overheadCheckRadius = 0.2f;
 
     bool facingRight = true;
     bool isRunning = false;
-    [SerializeField] bool isgrounded = false;
+    bool isgrounded = false;
     bool jump = false;
+    [SerializeField] bool crouch;
 
     //public dataMember
 
@@ -32,9 +37,10 @@ public class Player_Controller : MonoBehaviour
     }
     void Update()
     {
+        #region
         HorizontalDirection = Input.GetAxisRaw("Horizontal");
        
-        //for running press Left shift key
+        //if left shift key pressed player will run
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
             isRunning = true;
@@ -43,9 +49,10 @@ public class Player_Controller : MonoBehaviour
         {
             isRunning = false;
         }
+        #endregion
 
-        //set animation for jump
-        if(Input.GetButtonDown("Jump"))
+        //if we press jump button player will jump
+        if (Input.GetButtonDown("Jump"))
         {
             jump = true;
             animator.SetBool("Jump", true);
@@ -58,11 +65,21 @@ public class Player_Controller : MonoBehaviour
         //set vertical velocity
         animator.SetFloat("yVelocity", rb.velocity.y);
 
+        //if left control key is pressed player will crounch
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            crouch = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            crouch = false;
+        }
+
     }
 
     private void FixedUpdate()
     {
-        movement(HorizontalDirection, jump);
+        movement(HorizontalDirection, jump, crouch);
         GroundCheck();
     }
 
@@ -73,27 +90,56 @@ public class Player_Controller : MonoBehaviour
         //to check wheather player touching ground or not
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundCheckRadius, groundLayer);
         if (colliders.Length > 0)
+        {
             isgrounded = true;
+        }
+            
 
         //if player is jumping set isgrounded to false
         animator.SetBool("Jump", !isgrounded);
     }
 
-    void movement(float direction, bool jumpFlag)
+    void movement(float direction, bool jumpFlag, bool crouchFlag)
     {
-        //check is player is in ground and set jump/vetical power
-        if(isgrounded && jumpFlag)
+        #region Jump and crouch
+
+        if(!crouchFlag)
+        {
+            if(Physics2D.OverlapCircle(overheadCheckCollider.position, overheadCheckRadius, groundLayer))
+            {
+                crouchFlag = true;
+            }
+        }
+
+        if(isgrounded && crouchFlag)
+        {
+            standingCollider.enabled = false;
+        }
+        else
+        {
+            standingCollider.enabled = true;
+        }
+        
+
+        //check is player is in ground and pressed space set jump power & jump
+        if (isgrounded && jumpFlag)
         {
             jump = false;
             rb.AddForce(new Vector2(0f, jumpPower));
         }
-        
+        animator.SetBool("Crouch", crouchFlag);
+        #endregion
+
+        #region Move and run
         //set the horizontal speed 
         float speedcontroller = direction * speed * 100 * Time.fixedDeltaTime;
 
-        //check if player is running increse the its spped
+        //check if player is running increase its spped
         if (isRunning)
-            speedcontroller *= SpeedModifier;
+            speedcontroller *= runSpeedModifier;
+
+        if (isRunning)
+            speedcontroller *= crouchSpeedModifier;
 
         //get the horizontal velocity
         Vector2 targetVelocity = new Vector2(speedcontroller, rb.velocity.y);
@@ -115,5 +161,6 @@ public class Player_Controller : MonoBehaviour
 
         //set the player movement animation
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-    } 
+# endregion
+    }
 }

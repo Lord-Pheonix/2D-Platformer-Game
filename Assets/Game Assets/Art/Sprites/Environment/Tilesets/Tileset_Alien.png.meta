@@ -231,7 +231,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 0
@@ -274,7 +274,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 8192
@@ -286,7 +286,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 8192
@@ -310,7 +310,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1994,10 +1994,10 @@ TextureImporter:
       Tileset_Alien_80: 21300102
       Tileset_Alien_Fill1: 21300022
       Tileset_Alien_WallLeft4: 21300070
-      Tileset_Alien_CeilingCornerFloorLeft: 21300120
-      Tileset_Alien_SingleColumnwall3: 21300112
-      Tileset_Alien_SingleColumnwall0: 21300106
       Tileset_Alien_WallRightCornerFloor: 21300130
+      Tileset_Alien_SingleColumnwall3: 21300112
+      Tileset_Alien_CeilingCornerFloorLeft: 21300120
+      Tileset_Alien_SingleColumnwall0: 21300106
       Tileset_Alien_FloorCornerInnerRight0: 21300074
       Tileset_Alien_WallRight5: 21300088
       Tileset_Alien_Fill6: 21300032
