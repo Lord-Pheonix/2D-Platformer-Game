@@ -7,11 +7,11 @@ public class Player_Controller : MonoBehaviour
     //private dataMember
     Rigidbody2D rb;
     Animator animator;
+    public Score_Controller ScoreController;
     [SerializeField] Collider2D standingCollider;
     [SerializeField] Transform groundCheckCollider;
     [SerializeField] Transform overheadCheckCollider;
     [SerializeField] LayerMask groundLayer;
-
 
     float HorizontalDirection;
     float speed = 1f;
@@ -25,15 +25,18 @@ public class Player_Controller : MonoBehaviour
     bool isRunning = false;
     bool isgrounded = false;
     bool jump = false;
-    [SerializeField] bool crouch;
-
-    //public dataMember
-
+    bool crouch;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+    }
+
+    public void PickUpKey()
+    {
+        Debug.Log("Pick up the point");
+        ScoreController.IncreaseScore(5);
     }
     void Update()
     {
