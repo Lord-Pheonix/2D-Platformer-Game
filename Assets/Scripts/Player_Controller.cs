@@ -9,6 +9,7 @@ public class Player_Controller : MonoBehaviour
     Animator animator;
     public Score_Controller ScoreController;
     [SerializeField] Collider2D standingCollider;
+    [SerializeField] Collider2D crouchingCollider;
     [SerializeField] Transform groundCheckCollider;
     [SerializeField] Transform overheadCheckCollider;
     [SerializeField] LayerMask groundLayer;
@@ -117,10 +118,12 @@ public class Player_Controller : MonoBehaviour
         if(isgrounded && crouchFlag)
         {
             standingCollider.enabled = false;
+            crouchingCollider.enabled = true;
         }
         else
         {
             standingCollider.enabled = true;
+            crouchingCollider.enabled = false;
         }
         
 
