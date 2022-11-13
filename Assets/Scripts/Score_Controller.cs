@@ -25,6 +25,6 @@ public class Score_Controller : MonoBehaviour
 
     private void RefreshUI()
     {
-        ScoreText.text = "Score : " + Score;
+        ScoreText.text = Score + "";
     }
 }

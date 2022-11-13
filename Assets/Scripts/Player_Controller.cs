@@ -37,11 +37,11 @@ public class Player_Controller : MonoBehaviour
     public void PickUpKey()
     {
         Debug.Log("Pick up the point");
-        ScoreController.IncreaseScore(5);
+        ScoreController.IncreaseScore(1);
     }
     void Update()
     {
-        #region
+        #region Running
         HorizontalDirection = Input.GetAxisRaw("Horizontal");
        
         //if left shift key pressed player will run
@@ -97,7 +97,8 @@ public class Player_Controller : MonoBehaviour
         {
             isgrounded = true;
         }
-            
+        else
+            isgrounded = false;
 
         //if player is jumping set isgrounded to false
         animator.SetBool("Jump", !isgrounded);

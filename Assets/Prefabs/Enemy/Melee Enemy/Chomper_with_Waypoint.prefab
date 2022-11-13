@@ -225,6 +225,19 @@ MonoBehaviour:
   - {fileID: 4709513968258993394}
   nextPoint: 0
   speed: 1.5
+--- !u!114 &1154497107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4075872056261798631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebdf9b56a8bdfd4fa9329004daab608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemydamage: 1
 --- !u!4 &5330626432852995099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7862585695895457571, guid: 572f0d0b01f670348b0f12bae1ac2cf5,
