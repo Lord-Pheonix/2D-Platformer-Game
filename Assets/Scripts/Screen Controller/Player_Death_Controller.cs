@@ -9,7 +9,7 @@ public class Player_Death_Controller : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<Player_Controller>() != null)
         {
-            collision.GetComponent<Health>().LoseLife(Enemydamage);
+            collision.GetComponent<Player_Health>().LoseLife(Enemydamage);
             Debug.Log("Player got hurt ");
         }
     }

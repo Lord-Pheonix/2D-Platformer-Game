@@ -4,11 +4,11 @@ using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public class Player_Health : MonoBehaviour
 {
     private Animator animator;
     
-    [SerializeField] Healthbar healthbar1, healthbar2, healthbar3;
+    [SerializeField] Player_Healthbar healthbar1, healthbar2, healthbar3;
     [SerializeField] Image[] lives;
     [SerializeField] int startingHealth, currentHealth;
     
@@ -19,10 +19,6 @@ public class Health : MonoBehaviour
         currentHealth = startingHealth;
         animator = GetComponent<Animator>();
     }
-   /* private void Update()
-    {
-        LoseLife(1);
-    }*/
 
     public void LoseLife(int damage)
     {
