@@ -10,8 +10,13 @@ public class Main_Menu_Fading : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
-    public void Fading()
+    public void FadingIn()
     {
         animator.SetBool("isFading", true);
+    }
+
+    public void FadingOut()
+    {
+        animator.SetBool("isFading", false);
     }
 }
