@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 671369123}
   - component: {fileID: 671369121}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Level Menu Close Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 189183182}
-  m_Father: {fileID: 6786162632063972941}
+  m_Father: {fileID: 4050454913010976968}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -167,19 +167,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 189183183}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1961839949}
-        m_TargetAssemblyTypeName: Level_UI, Assembly-CSharp
-        m_MethodName: CloseLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &169921342539086163
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,6 +804,7 @@ GameObject:
   - component: {fileID: 169921343172207522}
   - component: {fileID: 169921343172207525}
   - component: {fileID: 169921343172207524}
+  - component: {fileID: 1596604915}
   m_Layer: 5
   m_Name: Level 4 Button
   m_TagString: Untagged
@@ -927,6 +916,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1596604915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169921343172207526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf151c8828390254ca6441be7ec700a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevel: {fileID: 169921343172207524}
+  levelName: Level 4
 --- !u!1 &169921343467215406
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,7 +954,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169921343467215406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35.260254, y: -23.962036, z: -3.8002791}
+  m_LocalPosition: {x: 35.260254, y: -23.962036, z: -3.8002777}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -960,7 +963,7 @@ Transform:
   - {fileID: 169921344358948930}
   - {fileID: 169921343172207527}
   - {fileID: 169921343591110815}
-  m_Father: {fileID: 6786162632063972941}
+  m_Father: {fileID: 4050454913010976968}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &169921343591110814
@@ -975,6 +978,7 @@ GameObject:
   - component: {fileID: 169921343591110810}
   - component: {fileID: 169921343591110813}
   - component: {fileID: 169921343591110812}
+  - component: {fileID: 386735633}
   m_Layer: 5
   m_Name: Level 5 Button
   m_TagString: Untagged
@@ -1086,6 +1090,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &386735633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169921343591110814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf151c8828390254ca6441be7ec700a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevel: {fileID: 169921343591110812}
+  levelName: Level 5
 --- !u!1 &169921343742761316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,7 +1254,7 @@ GameObject:
   - component: {fileID: 169921343973195154}
   - component: {fileID: 169921343973195157}
   - component: {fileID: 169921343973195156}
-  - component: {fileID: 1961839949}
+  - component: {fileID: 1961839964}
   m_Layer: 5
   m_Name: Level Canvas
   m_TagString: Untagged
@@ -1256,7 +1274,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6786162632063972941}
+  - {fileID: 4050454913010976968}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1326,7 +1344,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1961839949
+--- !u!114 &1961839964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1338,9 +1356,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3938c29329241224eb82d5ba19cbc8ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  main_Menu_Fading: {fileID: 0}
-  mainMenuCanvas: {fileID: 0}
-  levelCanvas: {fileID: 169921343973195154}
+  MainMenu_Background: {fileID: 0}
+  MainMenu: {fileID: 0}
+  levelMenu: {fileID: 342897713741981629}
+  startGame: {fileID: 0}
+  quitGame: {fileID: 0}
+  quitLevelMenu: {fileID: 671369121}
 --- !u!1 &169921344034081328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,13 +1522,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169921344096914528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35.260254, y: -23.962036, z: -3.8002791}
+  m_LocalPosition: {x: 35.260254, y: -23.962036, z: -3.8002777}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 169921342756982316}
   - {fileID: 169921344034081329}
-  m_Father: {fileID: 6786162632063972941}
+  m_Father: {fileID: 4050454913010976968}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &169921344135387690
@@ -1522,6 +1543,7 @@ GameObject:
   - component: {fileID: 169921344135387686}
   - component: {fileID: 169921344135387689}
   - component: {fileID: 169921344135387688}
+  - component: {fileID: 1538644372}
   m_Layer: 5
   m_Name: Level 2 Button
   m_TagString: Untagged
@@ -1633,6 +1655,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1538644372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169921344135387690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf151c8828390254ca6441be7ec700a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevel: {fileID: 169921344135387688}
+  levelName: Level 2
 --- !u!1 &169921344358948933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,6 +1681,7 @@ GameObject:
   - component: {fileID: 169921344358948929}
   - component: {fileID: 169921344358948928}
   - component: {fileID: 169921344358948931}
+  - component: {fileID: 1154875875}
   m_Layer: 5
   m_Name: Level 3 Button
   m_TagString: Untagged
@@ -1756,6 +1793,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1154875875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169921344358948933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf151c8828390254ca6441be7ec700a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevel: {fileID: 169921344358948931}
+  levelName: Level 3
 --- !u!1 &169921344414062686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,6 +1819,7 @@ GameObject:
   - component: {fileID: 169921344414062682}
   - component: {fileID: 169921344414062685}
   - component: {fileID: 169921344414062684}
+  - component: {fileID: 821865537}
   m_Layer: 5
   m_Name: Level 1 Button
   m_TagString: Untagged
@@ -1879,7 +1931,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &2711534418310413561
+--- !u!114 &821865537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169921344414062686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf151c8828390254ca6441be7ec700a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevel: {fileID: 169921344414062684}
+  levelName: Level 1
+--- !u!1 &342897713741981629
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1887,7 +1953,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6786162632063972941}
+  - component: {fileID: 4050454913010976968}
   m_Layer: 5
   m_Name: Level Menu
   m_TagString: Untagged
@@ -1895,13 +1961,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6786162632063972941
+--- !u!224 &4050454913010976968
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2711534418310413561}
+  m_GameObject: {fileID: 342897713741981629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}

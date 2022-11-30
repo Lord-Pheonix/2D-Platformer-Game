@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Main_Menu_Fading : MonoBehaviour
+public class MainMenu_Background : MonoBehaviour
 {
     Animator animator;
 

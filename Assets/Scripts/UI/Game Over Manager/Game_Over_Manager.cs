@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UI_Manager : MonoBehaviour
+public class Game_Over_Manager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
 

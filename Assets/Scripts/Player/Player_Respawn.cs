@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Player_Respawn : MonoBehaviour
 {
-    private UI_Manager uiManager;
+    private Game_Over_Manager game_Over_Manager;
 
     private void Awake()
     {
-        uiManager = FindObjectOfType<UI_Manager>();
+        game_Over_Manager = FindObjectOfType<Game_Over_Manager>();
     }
 
     public void Respawn()
     {
-        uiManager.GameOver();
+        game_Over_Manager.GameOver();
     }
 }
