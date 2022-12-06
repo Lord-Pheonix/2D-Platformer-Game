@@ -24,9 +24,15 @@ public class Player_Health : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);
 
-        healthbarAnimation();
+        if(currentHealth == 0)
+        {
+            HealthBarAnimation2();
+        }
+        else
+        {
+            HealthBarAnimation1();
+        }
         StartCoroutine(waitThenload());
-
 
         if (currentHealth > 0)
         {
@@ -45,7 +51,7 @@ public class Player_Health : MonoBehaviour
         }
     }
 
-    void healthbarAnimation()
+    void HealthBarAnimation1()            //if player attacked by enemy
     {
         if (currentHealth == 2)
         {
@@ -59,6 +65,13 @@ public class Player_Health : MonoBehaviour
         {
             healthbar3.playanimation();
         }
+    }
+
+    void HealthBarAnimation2()   //if player fall in void
+    {
+        healthbar1.playanimation();
+        healthbar2.playanimation();
+        healthbar3.playanimation();
     }
 
     private IEnumerator waitThenload()

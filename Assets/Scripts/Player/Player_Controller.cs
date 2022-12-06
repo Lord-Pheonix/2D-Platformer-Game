@@ -6,7 +6,7 @@ public class Player_Controller : MonoBehaviour
 {
     //private dataMember
     Rigidbody2D rb;
-    Animator animator;
+    Animator PlayerAnimator;
     public Score_Controller ScoreController;
     [SerializeField] Collider2D standingCollider;
     [SerializeField] Collider2D crouchingCollider;
@@ -31,7 +31,7 @@ public class Player_Controller : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        PlayerAnimator = GetComponent<Animator>();
     }
 
     public void PickUpKey()
@@ -59,7 +59,7 @@ public class Player_Controller : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
-            animator.SetBool("Jump", true);
+            PlayerAnimator.SetBool("Jump", true);
         }
         else if (Input.GetButtonUp("Jump"))
         {
@@ -67,7 +67,7 @@ public class Player_Controller : MonoBehaviour
         }
 
         //set vertical velocity
-        animator.SetFloat("yVelocity", rb.velocity.y);
+        PlayerAnimator.SetFloat("yVelocity", rb.velocity.y);
 
         //if left control key is pressed player will crounch
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -101,7 +101,7 @@ public class Player_Controller : MonoBehaviour
             isgrounded = false;
 
         //if player is jumping set isgrounded to false
-        animator.SetBool("Jump", !isgrounded);
+        PlayerAnimator.SetBool("Jump", !isgrounded);
     }
 
     void movement(float direction, bool jumpFlag, bool crouchFlag)
@@ -134,7 +134,7 @@ public class Player_Controller : MonoBehaviour
             jump = false;
             rb.AddForce(new Vector2(0f, jumpPower));
         }
-        animator.SetBool("Crouch", crouchFlag);
+        PlayerAnimator.SetBool("Crouch", crouchFlag);
         #endregion
 
         #region Move and run
@@ -167,7 +167,7 @@ public class Player_Controller : MonoBehaviour
         transform.localScale = scale;
 
         //set the player movement animation
-        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        PlayerAnimator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
 # endregion
     }
 }

@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490554598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.012, y: -0.0663, z: 0}
+  m_LocalPosition: {x: -0.04, y: 0.204, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -189,8 +189,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009726346, y: 1.0533571}
-  m_Size: {x: 0.5684205, y: 1.9206538}
+  m_Offset: {x: 0.009726346, y: 1.0933734}
+  m_Size: {x: 0.5684205, y: 1.796747}
   m_Direction: 0
 --- !u!70 &1291067088
 CapsuleCollider2D:
@@ -199,7 +199,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5931762865554638503}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: b8e58eb9041b2114987943bfbac1883d, type: 2}
   m_IsTrigger: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  jumpPower: 325
+  jumpPower: 327
 --- !u!114 &1371509085
 MonoBehaviour:
   m_ObjectHideFlags: 0

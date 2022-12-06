@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SelectionArrow : MonoBehaviour
@@ -21,7 +22,7 @@ public class SelectionArrow : MonoBehaviour
             changePosition(1);
 
         //To Interact With Options
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Return))
             Interact();
     }
 
@@ -40,6 +41,27 @@ public class SelectionArrow : MonoBehaviour
     private void Interact()
     {
         options[currentPosition].GetComponent<Button>().onClick.Invoke();
+    }
+
+    public void RestartPointer()                  //
+    {
+        if (currentPosition == 1 || currentPosition == 2)
+            currentPosition = 0;
+        rect.position = new Vector3(rect.position.x, options[currentPosition].position.y, 0);
+    }
+
+    public void MainMenuPointer()
+    {
+        if (currentPosition == 0 || currentPosition == 2)
+            currentPosition = 1;
+        rect.position = new Vector3(rect.position.x, options[currentPosition].position.y, 0);
+    }
+
+    public void QuitPointer()
+    {
+        if (currentPosition == 0 || currentPosition == 1)
+            currentPosition = 2;
+        rect.position = new Vector3(rect.position.x, options[currentPosition].position.y, 0);
     }
 }
 

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Player_Healthbar : MonoBehaviour
 {
-    public Animator animator;
+    public Animator HealthBarAnimator;
 
-    private void awake()
+    private void Awake()
     {
-        animator = GetComponent<Animator>();
+        HealthBarAnimator = GetComponent<Animator>();
     }
 
     public void playanimation()
     {
-        animator.SetBool("isattacked", true);
+        HealthBarAnimator.SetBool("isattacked", true);
     }
 }

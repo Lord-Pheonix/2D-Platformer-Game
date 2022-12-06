@@ -2,14 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Game_Over_Manager : MonoBehaviour
 {
-    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] GameObject gameOverScreen;
+
+    [Header("GameOver Menu Buttons")]
+    [SerializeField] Button restart;
+    [SerializeField] Button mainmenu;
+    [SerializeField] Button quit;
 
     private void Awake()
     {
         gameOverScreen.SetActive(false);
+
+
+        restart.onClick.AddListener(Restart);
+        mainmenu.onClick.AddListener(MainMenu);
+        quit.onClick.AddListener(Quit);
+
     }
     public void GameOver()
     {
@@ -22,7 +34,7 @@ public class Game_Over_Manager : MonoBehaviour
     }
 
     public void MainMenu()
-    {
+    { 
         SceneManager.LoadScene(0);
     }
 

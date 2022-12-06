@@ -23,6 +23,18 @@ public class Game_Menu_Manager: MonoBehaviour
         startGame.onClick.AddListener(StartGame);               //when button is clicked call Start Game function
         quitGame.onClick.AddListener(Quit);                     //when button is clicked call quit function
         quitLevelMenu.onClick.AddListener(CloseLevelMenu);      //when button is clicked call close Level Menu function
+        
+    }
+
+    private void Update()
+    {
+        if(levelMenu == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                CloseLevelMenu();
+            }
+        }
     }
 
     public void StartGame()  //this function will take us to level menu

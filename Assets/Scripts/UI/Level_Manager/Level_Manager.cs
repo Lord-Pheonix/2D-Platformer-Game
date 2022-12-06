@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Level_Manager : MonoBehaviour
 {
@@ -52,7 +53,8 @@ public class Level_Manager : MonoBehaviour
         //unlock the next level
         int currentSceneIndex = Array.FindIndex(totalLevel, level => level == currentScene.name);      //it will find the index of scene based on its name
 
-        int nextSceneIndex = currentSceneIndex++;             //increment the curent scene index (ex. if current scene index = 0 then next scene should be 1) 
+        int nextSceneIndex = currentSceneIndex + 1;             //increment the curent scene index (ex. if current scene index = 0 then next scene should be 1)
+        
         
         if(nextSceneIndex < totalLevel.Length)           //checking if current scene index is less than all scene present in game 
         {

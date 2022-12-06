@@ -201,7 +201,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1363963668
 GameObject:
@@ -233,7 +233,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1363963671
 MonoBehaviour:
@@ -425,6 +425,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Menu Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4253404651410095843, guid: 259a4104bf54a1a409e525608238d0ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4253404651410095844, guid: 259a4104bf54a1a409e525608238d0ae,
         type: 3}
