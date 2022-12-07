@@ -248,7 +248,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  jumpPower: 327
+  jumpPower: 325
 --- !u!114 &1371509085
 MonoBehaviour:
   m_ObjectHideFlags: 0

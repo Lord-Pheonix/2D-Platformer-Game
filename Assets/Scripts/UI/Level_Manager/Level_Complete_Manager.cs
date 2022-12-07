@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Level_Complete_Manager : MonoBehaviour
 {
+    [SerializeField] GameObject Level_Complete_Menu;
+
     [Header("Level Complete Buttons")]
     [SerializeField] Button nextLevel;
     [SerializeField] Button restart;
@@ -13,9 +15,16 @@ public class Level_Complete_Manager : MonoBehaviour
 
     private void Awake()
     {
+        Level_Complete_Menu.SetActive(false);
+
         nextLevel.onClick.AddListener(NextLavel);
         restart.onClick.AddListener(Restart);
         mainmenu.onClick.AddListener(MainMenu);
+    }
+
+    public void LevelComplete()
+    {
+        Level_Complete_Menu.SetActive(true);
     }
 
     public void NextLavel()

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 169422819550568574}
   - component: {fileID: 781573135}
   m_Layer: 5
-  m_Name: lock
+  m_Name: Level Lock Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
