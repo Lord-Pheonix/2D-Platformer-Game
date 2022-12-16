@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.UIElements;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class Enemy_Controller : MonoBehaviour
 {
     public List<Transform> points;

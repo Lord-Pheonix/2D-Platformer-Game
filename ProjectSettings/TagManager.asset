@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Back theme
+    uniqueID: 3183304697
+    locked: 0
+  - name: BackGround
+    uniqueID: 4012281635
+    locked: 0
+  - name: ForeGround
+    uniqueID: 301896813
+    locked: 0
+  - name: PLayer
+    uniqueID: 681767967
+    locked: 0
