@@ -14,6 +14,11 @@ public class Game_Menu_Manager: MonoBehaviour
     [Header("Level Menu Buttons")]
     [SerializeField] Button quitLevelMenu;
 
+    private void Start()
+    {
+        Sound_Manager.Instance.PlayMusic(AudioClips.music_BackgroundMusic);
+    }
+
     private void Awake()
     {
         //set Mainmenu gameobject to true and levelmenu to false when first time the game run
@@ -43,6 +48,7 @@ public class Game_Menu_Manager: MonoBehaviour
         MainMenu_Background.FadingIn();
 
         //set Main menu object to false and level menu to true
+        Sound_Manager.Instance.Play(AudioClips.sfx_StarButtonClick);
         levelMenu.SetActive(true);
         MainMenu.SetActive(false);
     }

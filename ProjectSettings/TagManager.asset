@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Sky
+    uniqueID: 3952603289
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -50,6 +53,15 @@ TagManager:
   - name: ForeGround
     uniqueID: 301896813
     locked: 0
+  - name: Duplicate Foreground
+    uniqueID: 1151622623
+    locked: 0
+  - name: Foreground Props
+    uniqueID: 404522891
+    locked: 0
   - name: PLayer
     uniqueID: 681767967
+    locked: 0
+  - name: Very Front Layer
+    uniqueID: 4274691809
     locked: 0

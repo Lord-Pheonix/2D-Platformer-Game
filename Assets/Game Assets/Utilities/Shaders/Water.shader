@@ -1,4 +1,6 @@
-﻿Shader "Water2D"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Water2D"
 {
 	Properties
 	{
@@ -8,7 +10,7 @@
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" "Queue"="Transparent" }
+		Tags { "RenderType"="Transparent" "Queue"="Transparent" }  //Opaque
 		LOD 100
 
 		// Grab the screen behind the object into _BackgroundTexture
@@ -20,8 +22,8 @@
 		Pass
 		{
 			CGPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+			#pragma vertex vert alpha
+			#pragma fragment frag alpha
 
 
 			#include "UnityCG.cginc"
@@ -43,7 +45,7 @@
 
 			sampler2D _BackgroundTexture;
 			sampler2D _ColorOpacity;
-			sampler2D _DistortionNormalMap;
+			sampler2D _DistortionNormalMap;   
 
 			float _DistortionStrength;
 			float4 _DistortionNormalMap_ST;
@@ -82,6 +84,7 @@
 
 				bgcolor.rgb = lerp(bgcolor.rgb, coloropa.rgb, coloropa.a);
 				bgcolor.rgb *= coloropa.rgb;
+				
 
 				return bgcolor;
 				//return float4(i.uv2.x, i.uv2.y, 0, 1);

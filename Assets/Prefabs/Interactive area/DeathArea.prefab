@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 649546291542703967}
   - component: {fileID: 649546291542703966}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DeathArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
