@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
@@ -12,19 +13,24 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] Collider2D crouchingCollider;
     [SerializeField] Transform groundCheckCollider;
     [SerializeField] Transform overheadCheckCollider;
+    [SerializeField] Transform handCheckCollider;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] LayerMask pushableBoxLayer;
 
     float HorizontalDirection;
     float speed = 1f;
     float runSpeedModifier = 4f;
     float crouchSpeedModifier = 0.5f;
+    float pushSpeedModifier = 0.5f;
     [SerializeField] float jumpPower = 1f;
     const float groundCheckRadius = 0.4f;
     const float overheadCheckRadius = 0.2f;
+    const float handCheckRadius = 0.4f;
 
     bool facingRight = true;
     bool isRunning = false;
     bool isgrounded = false;
+    bool ispushing = false;
     bool jump = false;
     bool crouch;
 
@@ -65,7 +71,6 @@ public class Player_Controller : MonoBehaviour
         {
             jump = false;
         }
-
         //set vertical velocity
         PlayerAnimator.SetFloat("yVelocity", rb.velocity.y);
 
@@ -78,13 +83,13 @@ public class Player_Controller : MonoBehaviour
         {
             crouch = false;
         }
-
     }
 
     private void FixedUpdate()
     {
         movement(HorizontalDirection, jump, crouch);
         GroundCheck();
+        PushingBox();
     }
 
     void GroundCheck()
@@ -93,7 +98,8 @@ public class Player_Controller : MonoBehaviour
         
         //to check wheather player touching ground or not
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundCheckRadius, groundLayer);
-        if (colliders.Length > 0)
+        Collider2D[] colliders2 = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundCheckRadius, pushableBoxLayer);
+        if (colliders.Length > 0 || colliders2.Length > 0)
         {
             isgrounded = true;
         }
@@ -148,6 +154,9 @@ public class Player_Controller : MonoBehaviour
         if (isRunning)
             speedcontroller *= crouchSpeedModifier;
 
+        if (ispushing)
+            speedcontroller *= pushSpeedModifier;
+
         //get the horizontal velocity
         Vector2 targetVelocity = new Vector2(speedcontroller, rb.velocity.y);
         rb.velocity = targetVelocity;
@@ -169,5 +178,21 @@ public class Player_Controller : MonoBehaviour
         //set the player movement animation
         PlayerAnimator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
 # endregion
+    }
+
+    void PushingBox()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(handCheckCollider.position, handCheckRadius, pushableBoxLayer);
+        if (colliders.Length > 0)
+        {
+            ispushing = true;
+            Debug.Log("Is touching");
+            PlayerAnimator.SetBool("Push", ispushing);
+        }
+        else
+        {
+            ispushing = false;
+            PlayerAnimator.SetBool("Push", ispushing);
+        }
     }
 }

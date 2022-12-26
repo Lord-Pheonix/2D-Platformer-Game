@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Box
+  - water
   layers:
   - Default
   - TransparentFX
@@ -12,8 +14,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - PushableBox
+  - Points
   - 
   - 
   - 
@@ -49,6 +51,9 @@ TagManager:
     locked: 0
   - name: BackGround
     uniqueID: 4012281635
+    locked: 0
+  - name: Background Props
+    uniqueID: 4216561825
     locked: 0
   - name: ForeGround
     uniqueID: 301896813
