@@ -3574,6 +3574,7 @@ GameObject:
   - component: {fileID: 539436290}
   - component: {fileID: 539436291}
   - component: {fileID: 539436292}
+  - component: {fileID: 539436293}
   m_Layer: 0
   m_Name: LevelComplete
   m_TagString: Untagged
@@ -3635,6 +3636,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Level_Complete_Manager: {fileID: 851510111}
+--- !u!210 &539436293
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539436288}
+  m_Enabled: 1
+  m_SortingLayerID: 681767967
+  m_SortingLayer: 8
+  m_SortingOrder: 0
 --- !u!1 &575246656
 GameObject:
   m_ObjectHideFlags: 0
@@ -19103,12 +19115,12 @@ PrefabInstance:
     - target: {fileID: 7143497672825038403, guid: e2864f47db2a6664692787964cd58ea6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.59
+      value: -7.43
       objectReference: {fileID: 0}
     - target: {fileID: 7143497672825038403, guid: e2864f47db2a6664692787964cd58ea6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.97
+      value: 0.76
       objectReference: {fileID: 0}
     - target: {fileID: 7143497672825038403, guid: e2864f47db2a6664692787964cd58ea6,
         type: 3}

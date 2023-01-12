@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestructibleWall : MonoBehaviour
 {
-    public GameObject destroyedWall;
+    [SerializeField] GameObject destroyedWall;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

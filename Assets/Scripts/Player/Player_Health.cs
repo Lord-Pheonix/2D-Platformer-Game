@@ -8,7 +8,8 @@ public class Player_Health : MonoBehaviour
     
     [SerializeField] Player_Healthbar healthbar1, healthbar2, healthbar3;
     [SerializeField] Image[] lives;
-    [SerializeField] int startingHealth, currentHealth;
+    [SerializeField] int startingHealth; 
+    public int currentHealth;
     
     bool dead;
 
@@ -45,7 +46,6 @@ public class Player_Health : MonoBehaviour
                 GetComponent<Player_Controller>().enabled = false;
                 dead = true;
             }
-            
         }
     }
 

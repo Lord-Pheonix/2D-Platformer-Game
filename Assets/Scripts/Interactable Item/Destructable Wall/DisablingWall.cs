@@ -6,11 +6,6 @@ public class DisablingWall : MonoBehaviour
 {
     private void Update()
     {
-        StartCoroutine(waitThenload());
-    }
-    private IEnumerator waitThenload()
-    {
-        yield return new WaitForSecondsRealtime(5f);
-        Destroy(gameObject);
+        Destroy(gameObject, 5f);
     }
 }

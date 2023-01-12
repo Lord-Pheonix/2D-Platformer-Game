@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Player_Controller : MonoBehaviour
 {
     //private dataMember
     Rigidbody2D rb;
     Animator PlayerAnimator;
+
     public Score_Controller ScoreController;
     [SerializeField] Collider2D standingCollider;
     [SerializeField] Collider2D crouchingCollider;
@@ -16,9 +18,9 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] Transform handCheckCollider;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] LayerMask pushableBoxLayer;
-
+    
     float HorizontalDirection;
-    float speed = 1f;
+    public float speed = 1f;
     float runSpeedModifier = 4f;
     float crouchSpeedModifier = 0.5f;
     float pushSpeedModifier = 0.5f;
@@ -31,8 +33,9 @@ public class Player_Controller : MonoBehaviour
     bool isRunning = false;
     bool isgrounded = false;
     bool ispushing = false;
-    bool jump = false;
     bool crouch;
+
+
 
     private void Awake()
     {
@@ -64,13 +67,9 @@ public class Player_Controller : MonoBehaviour
         //if we press jump button player will jump
         if (Input.GetButtonDown("Jump"))
         {
-            jump = true;
-            PlayerAnimator.SetBool("Jump", true);
+            Jump();
         }
-        else if (Input.GetButtonUp("Jump"))
-        {
-            jump = false;
-        }
+
         //set vertical velocity
         PlayerAnimator.SetFloat("yVelocity", rb.velocity.y);
 
@@ -87,9 +86,9 @@ public class Player_Controller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movement(HorizontalDirection, jump, crouch);
+        movement(HorizontalDirection, crouch);
         GroundCheck();
-        PushingBox();
+        PushingBox();   
     }
 
     void GroundCheck()
@@ -97,22 +96,35 @@ public class Player_Controller : MonoBehaviour
         isgrounded = false;
         
         //to check wheather player touching ground or not
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundCheckRadius, groundLayer);
-        Collider2D[] colliders2 = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundCheckRadius, pushableBoxLayer);
-        if (colliders.Length > 0 || colliders2.Length > 0)
+        Collider2D[] groundCollider = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundCheckRadius, groundLayer);
+
+        //to check wheather player touching Pushable box or not(as we can stand on box also)
+        Collider2D[] boxCollider = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundCheckRadius, pushableBoxLayer);
+
+        if (groundCollider.Length > 0 || boxCollider.Length > 0)
         {
             isgrounded = true;
         }
         else
             isgrounded = false;
 
-        //if player is jumping set isgrounded to false
+        //set player jumping Animation according to isgrounded condition
         PlayerAnimator.SetBool("Jump", !isgrounded);
     }
 
-    void movement(float direction, bool jumpFlag, bool crouchFlag)
+    void Jump()
     {
-        #region Jump and crouch
+        if (isgrounded)
+        {
+                //check is player is in ground and pressed space set jump power & jump
+                rb.velocity = Vector2.up * jumpPower;
+                PlayerAnimator.SetBool("Jump", true);
+        }
+    }
+
+    void movement(float direction, bool crouchFlag)
+    {
+        #region crouch
 
         if(!crouchFlag)
         {
@@ -122,7 +134,7 @@ public class Player_Controller : MonoBehaviour
             }
         }
 
-        if(isgrounded && crouchFlag)
+        if (isgrounded && crouchFlag)
         {
             standingCollider.enabled = false;
             crouchingCollider.enabled = true;
@@ -131,14 +143,6 @@ public class Player_Controller : MonoBehaviour
         {
             standingCollider.enabled = true;
             crouchingCollider.enabled = false;
-        }
-        
-
-        //check is player is in ground and pressed space set jump power & jump
-        if (isgrounded && jumpFlag)
-        {
-            jump = false;
-            rb.AddForce(new Vector2(0f, jumpPower));
         }
         PlayerAnimator.SetBool("Crouch", crouchFlag);
         #endregion

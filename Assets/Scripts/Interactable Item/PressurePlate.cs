@@ -7,6 +7,7 @@ public class PressurePlate : MonoBehaviour
 {
     Animator pressurePlate;
     [SerializeField] Animator OpenDoor;
+    [SerializeField] Animator OpenPlatform;
 
     private void Awake()
     {
@@ -18,7 +19,11 @@ public class PressurePlate : MonoBehaviour
         if (collision.gameObject.GetComponent<Player_Controller>() != null || collision.gameObject.GetComponent<PushableBox>() != null)
         {
             pressurePlate.SetBool("On", true);
-            OpenDoor.SetTrigger("openDoor");
+            if(OpenDoor != null)
+                OpenDoor.SetTrigger("openDoor");
+            if (OpenPlatform != null)
+                OpenPlatform.SetTrigger("openPlatform");
+
         }
     }
 

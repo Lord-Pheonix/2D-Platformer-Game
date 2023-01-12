@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableSwitch : MonoBehaviour
+public class PlatformActivationSwitch : MonoBehaviour
 {
     Animator Switch;
-    [SerializeField] GameObject Block;
+    [SerializeField] GameObject platform;
 
     private void Awake()
     {
         Switch = GetComponent<Animator>();
-        Block.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -18,7 +17,10 @@ public class InteractableSwitch : MonoBehaviour
         if (collision.gameObject.GetComponent<Player_Controller>() != null)
         {
             Switch.SetTrigger("Switch on");
-            Block.SetActive(true);
+            if(platform.activeSelf == false)
+                platform.SetActive(true);
+            else
+                platform.SetActive(false);
         }
     }
 }

@@ -6,17 +6,19 @@ TagManager:
   tags:
   - Box
   - water
+  - WeaponHolder
+  - HitPlace
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Ground
   - PushableBox
   - Points
-  - 
+  - BossEnemy
   - 
   - 
   - 
@@ -54,6 +56,9 @@ TagManager:
     locked: 0
   - name: Background Props
     uniqueID: 4216561825
+    locked: 0
+  - name: Boss ForeGround
+    uniqueID: 3751087203
     locked: 0
   - name: ForeGround
     uniqueID: 301896813
