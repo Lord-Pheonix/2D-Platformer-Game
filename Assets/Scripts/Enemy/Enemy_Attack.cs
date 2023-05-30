@@ -20,6 +20,7 @@ public class Enemy_Attack : MonoBehaviour
 
     [SerializeField] Player_Health Player_Health;
     [SerializeField] BossEnemy_Health BossEnemy_Health;
+
     private void Awake()
     {
         BossAnimator = GetComponent<Animator>();
