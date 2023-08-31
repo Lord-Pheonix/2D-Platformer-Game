@@ -1,20 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Scripting.APIUpdating;
-using UnityEngine.UIElements;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class Enemy_Controller : MonoBehaviour
 {
-    public List<Transform> points;
-    public int nextPoint = 0;
-    int ChangePointValue = 1;
-    public float speed = 1.5f;
+    [SerializeField] private List<Transform> points;
+    [SerializeField] private float speed = 1.5f;
+
+    private int nextPoint = 0;
+    private int ChangePointValue = 1;
+    
 
     private void Update()
     {
         MoveToNextPoint();
     }
+
     private void Reset()
     {
         CreatingGameobject();
@@ -89,8 +90,10 @@ public class Enemy_Controller : MonoBehaviour
         Point2.transform.position = root.transform.position;
 
         //Init points in list then add the point to it
-        points = new List<Transform>();
-        points.Add(Point1.transform);
-        points.Add(Point2.transform);
+        points = new List<Transform>
+        {
+            Point1.transform,
+            Point2.transform
+        };
     }
 }

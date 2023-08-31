@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Pause_Menu_Manager : MonoBehaviour
 {
-    [SerializeField] GameObject PauseMenu;
+    [SerializeField] private GameObject PauseMenu;
 
     [Header("Pause Menu Buttons")]
-    [SerializeField] Button resume;
-    [SerializeField] Button restart;
-    [SerializeField] Button mainmenu;
-    [SerializeField] Button closePauseMenu;
+    [SerializeField] private Button resume;
+    [SerializeField] private Button restart;
+    [SerializeField] private Button mainmenu;
+    [SerializeField] private Button closePauseMenu;
 
     public static bool GameIsPaused = false;
 

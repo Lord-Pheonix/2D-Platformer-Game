@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
 {
-    Animator weaponHolderAnimator;
+    private Animator weaponHolderAnimator;
     private void Awake()
     {
         weaponHolderAnimator = GetComponent<Animator>();

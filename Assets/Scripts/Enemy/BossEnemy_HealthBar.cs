@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossEnemy_HealthBar : MonoBehaviour
 {
-    public Animator HealthBarAnimator;
+    [SerializeField] private Animator HealthBarAnimator;
 
     private void Awake()
     {
         HealthBarAnimator = GetComponent<Animator>();
     }
 
-    public void playanimation()
+    public void Playanimation()
     {
         HealthBarAnimator.SetTrigger("HealthBarDestroyed");
     }

@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PillerDestroyingSwitch : MonoBehaviour
 {
-    Animator Switch;
-    [SerializeField] DestructiblePiller piller;
+    private Animator Switch;
+    [SerializeField] private DestructiblePiller piller;
 
     private void Awake()
     {
@@ -18,7 +16,7 @@ public class PillerDestroyingSwitch : MonoBehaviour
         {
             Switch.SetTrigger("Switch on");
             if(piller!= null)
-                piller.destroyed();
+                piller.DestroyPiller();
         }
     }
 }

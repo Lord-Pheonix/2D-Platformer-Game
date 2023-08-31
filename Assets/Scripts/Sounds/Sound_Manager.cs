@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Sound_Manager : MonoBehaviour
@@ -8,9 +6,9 @@ public class Sound_Manager : MonoBehaviour
     private static Sound_Manager instance;
     public static Sound_Manager Instance { get { return instance; } }
 
-    [SerializeField] AudioSource SoundEffect;
-    [SerializeField] AudioSource Music;
-    [SerializeField] AudioType[] type;
+    [SerializeField] private AudioSource SoundEffect;
+    [SerializeField] private AudioSource Music;
+    [SerializeField] private AudioType[] type;
     private void Awake()
     {
         if (instance == null)    //checking if instance is null 
@@ -26,7 +24,7 @@ public class Sound_Manager : MonoBehaviour
 
     public void PlayMusic(AudioClips audio)
     {
-        AudioClip clip = getAudioClip(audio);
+        AudioClip clip = GetAudioClip(audio);
         if (clip != null)
         {
             Music.clip = clip;
@@ -40,7 +38,7 @@ public class Sound_Manager : MonoBehaviour
 
     public void Play(AudioClips audio)
     {
-        AudioClip clip = getAudioClip(audio);
+        AudioClip clip = GetAudioClip(audio);
         if(clip != null)
         {
             SoundEffect.PlayOneShot(clip);
@@ -51,7 +49,7 @@ public class Sound_Manager : MonoBehaviour
         }
     }
 
-    private AudioClip getAudioClip(AudioClips audio)
+    private AudioClip GetAudioClip(AudioClips audio)
     {
         AudioType Type = Array.Find(type, Audio => Audio.audioType == audio);
         if (Type != null)

@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DestructiblePiller : MonoBehaviour
 {
-    [SerializeField] GameObject destroyedPiller;
+    [SerializeField] private GameObject destroyedPiller;
 
-    public void destroyed()
+    public void DestroyPiller()
     {
         Instantiate(destroyedPiller, transform.position, transform.rotation);
         Destroy(gameObject);

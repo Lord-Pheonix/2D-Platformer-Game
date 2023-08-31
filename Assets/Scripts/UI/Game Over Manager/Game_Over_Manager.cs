@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Game_Over_Manager : MonoBehaviour
 {
-    [SerializeField] GameObject gameOverScreen;
+    [SerializeField] private GameObject gameOverScreen;
 
     [Header("GameOver Menu Buttons")]
-    [SerializeField] Button restart;
-    [SerializeField] Button mainmenu;
-    [SerializeField] Button quit;
+    [SerializeField] private Button restart;
+    [SerializeField] private Button mainmenu;
+    [SerializeField] private Button quit;
 
     private void Awake()
     {
@@ -21,8 +19,8 @@ public class Game_Over_Manager : MonoBehaviour
         restart.onClick.AddListener(Restart);
         mainmenu.onClick.AddListener(MainMenu);
         quit.onClick.AddListener(Quit);
-
     }
+
     public void GameOver()
     {
         gameOverScreen.SetActive(true);

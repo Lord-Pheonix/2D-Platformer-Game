@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlatformActivationSwitch : MonoBehaviour
 {
-    Animator Switch;
-    [SerializeField] GameObject platform;
+    private Animator Switch;
+    [SerializeField] private GameObject platform;
 
     private void Awake()
     {

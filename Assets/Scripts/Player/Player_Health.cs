@@ -6,12 +6,13 @@ public class Player_Health : MonoBehaviour
 {
     private Animator animator;
     
-    [SerializeField] Player_Healthbar healthbar1, healthbar2, healthbar3;
-    [SerializeField] Image[] lives;
-    [SerializeField] int startingHealth; 
+    [SerializeField] private Player_Healthbar healthbar1, healthbar2, healthbar3;
+    [SerializeField] private Image[] lives;
+    [SerializeField] private int startingHealth; 
+
     public int currentHealth;
     
-    bool dead;
+    private bool dead;
 
     private void Awake()
     {
@@ -31,7 +32,7 @@ public class Player_Health : MonoBehaviour
         {
             HealthBarAnimation1();
         }
-        StartCoroutine(waitThenload());
+        StartCoroutine(WaitThenload());
 
         if (currentHealth > 0)
         {
@@ -42,7 +43,7 @@ public class Player_Health : MonoBehaviour
             if(!dead)
             {
                 animator.SetTrigger("Die");
-                Debug.Log("Player lost");
+                //Debug.Log("Player lost");
                 GetComponent<Player_Controller>().enabled = false;
                 dead = true;
             }
@@ -53,26 +54,26 @@ public class Player_Health : MonoBehaviour
     {
         if (currentHealth == 2)
         {
-            healthbar1.playanimation();
+            healthbar1.PlayAnimation();
         }
         else if (currentHealth == 1)
         {
-            healthbar2.playanimation();
+            healthbar2.PlayAnimation();
         }
         else if (currentHealth == 0)
         {
-            healthbar3.playanimation();
+            healthbar3.PlayAnimation();
         }
     }
 
     void HealthBarAnimation2()   //if player fall in void
     {
-        healthbar1.playanimation();
-        healthbar2.playanimation();
-        healthbar3.playanimation();
+        healthbar1.PlayAnimation();
+        healthbar2.PlayAnimation();
+        healthbar3.PlayAnimation();
     }
 
-    private IEnumerator waitThenload()
+    private IEnumerator WaitThenload()
     {
         yield return new WaitForSecondsRealtime(1.0f);
         lives[currentHealth].enabled = false;

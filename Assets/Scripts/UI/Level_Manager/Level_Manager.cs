@@ -1,14 +1,13 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class Level_Manager : MonoBehaviour
 {
     private static Level_Manager instance;
     public static Level_Manager Instance {  get { return instance; } }
 
-    [SerializeField] string[] totalLevel;
+    [SerializeField] private string[] totalLevel;
     private void Awake()
     {
         if(instance == null)    //checking if instance is null 
@@ -40,7 +39,7 @@ public class Level_Manager : MonoBehaviour
     public void SetLevelStatus(string levelName, LevelStatus levelStatus)
     {
         PlayerPrefs.SetInt(levelName, (int)levelStatus);  //It will set the level status
-        Debug.Log("Setting " + levelName + " Status to : " + levelStatus);
+        //Debug.Log("Setting " + levelName + " Status to : " + levelStatus);
     }
 
     public void SetCurrentLevelCompleted()

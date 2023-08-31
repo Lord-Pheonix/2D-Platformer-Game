@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_Attack : MonoBehaviour
 {
-    Animator BossAnimator;
+    private Animator BossAnimator;
 
-    public GameObject bullet;
-    public Transform bullletpos;
-    public float range1 = 6f;
-    public float range2 = 15.5f;
-    public Transform attackPoint;
-    public float meeleAttackRange = 0.5f;
-    public LayerMask PlayerLayer;
-    public int BossDamage = 1;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform bullletpos;
+    [SerializeField] private float range1 = 6f;
+    [SerializeField] private float range2 = 15.5f;
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private float meeleAttackRange = 0.5f;
+    [SerializeField] private LayerMask PlayerLayer;
+    [SerializeField] private int BossDamage = 1;
 
     private float timer;
     private GameObject player;
@@ -57,7 +55,7 @@ public class Enemy_Attack : MonoBehaviour
         }     
     }
 
-    void MeeleAttack()
+    private void MeeleAttack()
     {
         Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, meeleAttackRange, PlayerLayer);
 
@@ -66,7 +64,7 @@ public class Enemy_Attack : MonoBehaviour
             player.GetComponent<Player_Health>().LoseLife(BossDamage);
             Debug.Log("we hit" + player.name);
         }
-        Debug.Log("doing meele attack");
+        //Debug.Log("doing meele attack");
     }
 
     private void OnDrawGizmosSelected()
@@ -76,7 +74,8 @@ public class Enemy_Attack : MonoBehaviour
 
         Gizmos.DrawWireSphere(attackPoint.position, meeleAttackRange);
     }
-    void Shoot()
+
+    private void Shoot()
     {
             Instantiate(bullet, bullletpos.position, Quaternion.identity);
     }

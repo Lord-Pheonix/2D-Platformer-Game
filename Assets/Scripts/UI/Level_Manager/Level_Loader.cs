@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Level_Loader : MonoBehaviour
 {
     //Inbuilt Game objects 
-    [SerializeField] Button nextLevel;
-    [SerializeField] Image lockimage;
+    [SerializeField] private Button nextLevel;
+    [SerializeField] private Image lockimage;
 
     //private data members
-    [SerializeField] string levelName;
+    [SerializeField] private string levelName;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class Level_Loader : MonoBehaviour
 
     private void Update()
     {
-        lockImage();
+        LockImage();
     }
 
     public void LoadNextLevel()
@@ -32,7 +32,7 @@ public class Level_Loader : MonoBehaviour
 
         switch(levelStatus)
         {
-            case LevelStatus.Locked    : Debug.Log(levelName + " is locked" );
+            case LevelStatus.Locked    : //Debug.Log(levelName + " is locked" );
                                          break;
                                                             
             case LevelStatus.Unlocked  : Sound_Manager.Instance.Play(AudioClips.sfx_LevelButtonClick);
@@ -42,10 +42,12 @@ public class Level_Loader : MonoBehaviour
             case LevelStatus.Completed : Sound_Manager.Instance.Play(AudioClips.sfx_LevelButtonClick);
                                          SceneManager.LoadScene(levelName);
                                          break;
+
+            default                    : break;
         }
     }
 
-    public void lockImage()
+    public void LockImage()
     {
         LevelStatus levelStatus = Level_Manager.Instance.GetLevelStatus(levelName);
 

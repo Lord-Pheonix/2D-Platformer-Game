@@ -1,14 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
 public class BossEntryCutscene : MonoBehaviour
 {
-    [SerializeField] PlayableDirector BossEntry;
-    [SerializeField] GameObject MainCamera;
-    [SerializeField] GameObject TimelineCamera;
-    [SerializeField] GameObject player;
+    [SerializeField] private PlayableDirector BossEntry;
+    [SerializeField] private GameObject MainCamera;
+    [SerializeField] private GameObject TimelineCamera;
+    [SerializeField] private GameObject player;
+    [SerializeField] private Animator door2;
 
     private void Start()
     {
@@ -27,7 +26,8 @@ public class BossEntryCutscene : MonoBehaviour
                 MainCamera.SetActive(false);
                 TimelineCamera.SetActive(true);
                 BossEntry.Play();
-                player.GetComponent<Player_Controller>().speed = 0f;
+                player.GetComponent<Player_Controller>().Speed = 0f;
+                door2.SetTrigger("closeDoor");
             }   
         }
     }
@@ -35,18 +35,18 @@ public class BossEntryCutscene : MonoBehaviour
     public void OnEnable()
     {
         BossEntry.stopped += OnPlayableDirectorStopped;
-        Debug.Log("PlayableDirector is playing.");
+        //Debug.Log("PlayableDirector is playing.");
     }
 
     void OnPlayableDirectorStopped(PlayableDirector aDirector)
     {
         if (BossEntry == aDirector)
         {
-            Debug.Log("PlayableDirector named " + aDirector.name + " is now stopped.");
+            //Debug.Log("PlayableDirector named " + aDirector.name + " is now stopped.");
             BossEntry.enabled = false;
             MainCamera.SetActive(true);
             TimelineCamera.SetActive(false);
-            player.GetComponent<Player_Controller>().speed = 1f;
+            player.GetComponent<Player_Controller>().Speed = 1f;
             this.enabled = false;
         }
     }
@@ -54,6 +54,6 @@ public class BossEntryCutscene : MonoBehaviour
     void OnDisable()
     {
         BossEntry.stopped -= OnPlayableDirectorStopped;
-        Debug.Log("PlayableDirector is not playing.");
+        //Debug.Log("PlayableDirector is not playing.");
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player_Attack : MonoBehaviour
@@ -27,7 +25,7 @@ public class Player_Attack : MonoBehaviour
         if (collision.gameObject.tag == "WeaponHolder")
         {
             weaponObtained = true;
-            Debug.Log("Weapon Obtained");
+            //Debug.Log("Weapon Obtained");
         }
     }
 
@@ -41,8 +39,8 @@ public class Player_Attack : MonoBehaviour
 
             foreach (Collider2D enemy in hitEnemy)
             {
-                enemy.GetComponent<BossEnemy_Health>().losehealth(playerDamage);
-                Debug.Log("we hit" + enemy.name);
+                enemy.GetComponent<BossEnemy_Health>().Losehealth(playerDamage);
+                //Debug.Log("we hit" + enemy.name);
             }
         }
     }

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
@@ -8,12 +5,12 @@ public class BulletScript : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rb;
     private Animator animator;
-    [SerializeField] GameObject BulletTrail;
+
+    [SerializeField] private GameObject BulletTrail;
     [SerializeField] private int Enemydamage;
+    [SerializeField] private float speed;
 
-    public float speed;
     private float timer;
-
 
     void Start()
     {
@@ -21,7 +18,7 @@ public class BulletScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("HitPlace");
         animator = GetComponent<Animator>();
 
-        bulletDirection();
+        BulletDirection();
     }
 
     void Update()
@@ -34,7 +31,7 @@ public class BulletScript : MonoBehaviour
         }
     }
 
-    void bulletDirection()
+    void BulletDirection()
     {
             Vector3 direction = player.transform.position - transform.position;
             rb.velocity = new Vector2(direction.x, direction.y).normalized * speed;
@@ -49,12 +46,12 @@ public class BulletScript : MonoBehaviour
         {
             BulletTrail.SetActive(false);
             collision.GetComponent<Player_Health>().LoseLife(Enemydamage);
-            Debug.Log("Player got hurt ");
+            //Debug.Log("Player got hurt ");
             animator.SetTrigger("Explode");
         }
     }
 
-    void deactivate()
+    private void DeActivate()
     {
         Destroy(gameObject);
     }

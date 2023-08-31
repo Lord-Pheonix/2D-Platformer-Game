@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SelectionArrow : MonoBehaviour
@@ -17,16 +16,16 @@ public class SelectionArrow : MonoBehaviour
     {
         //Change Position of the Selection Arrow
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-            changePosition(-1);
+            ChangePosition(-1);
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-            changePosition(1);
+            ChangePosition(1);
 
         //To Interact With Options
         if (Input.GetKeyDown(KeyCode.Return))
             Interact();
     }
 
-    private void changePosition(int change)
+    private void ChangePosition(int change)
     {
         currentPosition += change;
 
@@ -43,7 +42,7 @@ public class SelectionArrow : MonoBehaviour
         options[currentPosition].GetComponent<Button>().onClick.Invoke();
     }
 
-    public void RestartPointer()                  //
+    public void RestartPointer()                  
     {
         if (currentPosition == 1 || currentPosition == 2)
             currentPosition = 0;

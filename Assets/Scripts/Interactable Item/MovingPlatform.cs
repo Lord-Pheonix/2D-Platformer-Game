@@ -1,13 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    [SerializeField] List<Transform> points;
-    [SerializeField] float speed = 1.5f;
-    int nextPoint = 0;
-    int ChangePointValue = 1;
+    [SerializeField] private List<Transform> points;
+    [SerializeField] private float speed = 1.5f;
+    
+    private int nextPoint = 0;
+    private int ChangePointValue = 1;
     
     private void Update()
     {

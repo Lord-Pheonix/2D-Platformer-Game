@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PushableBox : MonoBehaviour
 {
-    Rigidbody2D rb;
-    [SerializeField] float forceMagnitude;
+    private Rigidbody2D rb;
+    [SerializeField] private float forceMagnitude;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

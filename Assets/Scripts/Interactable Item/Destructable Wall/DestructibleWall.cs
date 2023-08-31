@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DestructibleWall : MonoBehaviour
 {
-    [SerializeField] GameObject destroyedWall;
+    [SerializeField] private GameObject destroyedWall;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

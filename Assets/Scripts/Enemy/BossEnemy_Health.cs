@@ -1,23 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BossEnemy_Health : MonoBehaviour
 {
-    Animator BossEnemyAnimator;
-    [SerializeField] Animator openDoor1, openDoor2;
+    [SerializeField] private Animator openDoor1, openDoor2;
+    [SerializeField] private Image fillBar;
+    [SerializeField] private BossEnemy_HealthBar healthbar;
+    
+    private Animator bossEnemyAnimator;
+    private bool died;
 
-    public Image fillBar;
-    [SerializeField] BossEnemy_HealthBar healthbar;
     public float health;
-
-    bool died;
     private void Awake()
     {
-        BossEnemyAnimator = GetComponent<Animator>();
+        bossEnemyAnimator = GetComponent<Animator>();
     }
-    public void losehealth(int value)
+
+    public void Losehealth(int value)
     {
         health -= value;
 
@@ -28,9 +27,9 @@ public class BossEnemy_Health : MonoBehaviour
             if(!died)
             {
                 died = true;
-                healthbar.playanimation();
-                BossEnemyAnimator.SetTrigger("BossDie");
-                Debug.Log("Boss lost");
+                healthbar.Playanimation();
+                bossEnemyAnimator.SetTrigger("BossDie");
+                //Debug.Log("Boss lost");
             } 
         }
     }

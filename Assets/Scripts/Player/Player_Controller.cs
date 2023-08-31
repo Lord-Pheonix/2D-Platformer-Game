@@ -1,41 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.Playables;
 
 public class Player_Controller : MonoBehaviour
 {
-    //private dataMember
-    Rigidbody2D rb;
-    Animator PlayerAnimator;
+    private Rigidbody2D rb;
+    private Animator PlayerAnimator;
 
-    public Score_Controller ScoreController;
-    [SerializeField] Collider2D standingCollider;
-    [SerializeField] Collider2D crouchingCollider;
-    [SerializeField] Transform groundCheckCollider;
-    [SerializeField] Transform overheadCheckCollider;
-    [SerializeField] Transform handCheckCollider;
-    [SerializeField] LayerMask groundLayer;
-    [SerializeField] LayerMask pushableBoxLayer;
+    [SerializeField] private Score_Controller ScoreController;
+    [SerializeField] private Level_Complete_Manager levelCompleteManager;
+
+
+    [SerializeField] private Collider2D standingCollider;
+    [SerializeField] private Collider2D crouchingCollider;
+    [SerializeField] private Transform groundCheckCollider;
+    [SerializeField] private Transform overheadCheckCollider;
+    [SerializeField] private Transform handCheckCollider;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask pushableBoxLayer;
+
     
-    float HorizontalDirection;
-    public float speed = 1f;
-    float runSpeedModifier = 4f;
-    float crouchSpeedModifier = 0.5f;
-    float pushSpeedModifier = 0.5f;
-    [SerializeField] float jumpPower = 1f;
-    const float groundCheckRadius = 0.4f;
-    const float overheadCheckRadius = 0.2f;
-    const float handCheckRadius = 0.4f;
+    [SerializeField] private float jumpPower = 1f;
+    public float Speed = 1f;
 
-    bool facingRight = true;
-    bool isRunning = false;
-    bool isgrounded = false;
-    bool ispushing = false;
-    bool crouch;
+    private float HorizontalDirection;
 
+    private readonly float runSpeedModifier = 4f;
+    private readonly float crouchSpeedModifier = 0.5f;
+    private readonly float pushSpeedModifier = 0.5f;
 
+    private const float groundCheckRadius = 0.4f;
+    private const float overheadCheckRadius = 0.2f;
+    private const float handCheckRadius = 0.4f;
+
+    private bool facingRight = true;
+    private bool isRunning = false;
+    private bool isgrounded = false;
+    private bool ispushing = false;
+    private bool crouch;
 
     private void Awake()
     {
@@ -45,11 +45,17 @@ public class Player_Controller : MonoBehaviour
 
     public void PickUpKey()
     {
-        Debug.Log("Pick up the point");
+        //Debug.Log("Pick up the point");
         ScoreController.IncreaseScore(1);
     }
+
     void Update()
     {
+        if (levelCompleteManager.levelCompleted)
+        {
+            this.gameObject.SetActive(false);
+        }
+
         #region Running
         HorizontalDirection = Input.GetAxisRaw("Horizontal");
        
@@ -86,7 +92,7 @@ public class Player_Controller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movement(HorizontalDirection, crouch);
+        Movement(HorizontalDirection, crouch);
         GroundCheck();
         PushingBox();   
     }
@@ -122,7 +128,7 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
-    void movement(float direction, bool crouchFlag)
+    void Movement(float direction, bool crouchFlag)
     {
         #region crouch
 
@@ -149,7 +155,7 @@ public class Player_Controller : MonoBehaviour
 
         #region Move and run
         //set the horizontal speed 
-        float speedcontroller = direction * speed * 100 * Time.fixedDeltaTime;
+        float speedcontroller = direction * Speed * 100 * Time.fixedDeltaTime;
 
         //check if player is running increase its spped
         if (isRunning)
@@ -190,7 +196,7 @@ public class Player_Controller : MonoBehaviour
         if (colliders.Length > 0)
         {
             ispushing = true;
-            Debug.Log("Is touching");
+            //Debug.Log("Is touching");
             PlayerAnimator.SetBool("Push", ispushing);
         }
         else

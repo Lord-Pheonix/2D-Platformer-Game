@@ -4,15 +4,15 @@ using UnityEngine.UI;
 public class Game_Menu_Manager: MonoBehaviour
 {
     [Header("Game Menu Objects")]
-    [SerializeField] MainMenu_Background MainMenu_Background;    //object Coming from MainMenu_Background script
-    [SerializeField] GameObject MainMenu, levelMenu;        
+    [SerializeField] private MainMenu_Background MainMenu_Background;    //object Coming from MainMenu_Background script
+    [SerializeField] private GameObject MainMenu, levelMenu;        
 
     [Header("Main Menu Buttons")]
     [SerializeField] private Button startGame;
     [SerializeField] private Button quitGame;
 
     [Header("Level Menu Buttons")]
-    [SerializeField] Button quitLevelMenu;
+    [SerializeField] private Button quitLevelMenu;
 
     private void Start()
     {
