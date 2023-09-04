@@ -19,9 +19,9 @@ TagManager:
   - PushableBox
   - Points
   - BossEnemy
-  - 
-  - 
-  - 
+  - Enemy
+  - Trap
+  - AcidWater
   - 
   - 
   - 

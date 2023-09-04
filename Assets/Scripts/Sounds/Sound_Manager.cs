@@ -6,9 +6,12 @@ public class Sound_Manager : MonoBehaviour
     private static Sound_Manager instance;
     public static Sound_Manager Instance { get { return instance; } }
 
-    [SerializeField] private AudioSource SoundEffect;
-    [SerializeField] private AudioSource Music;
+    [SerializeField] private AudioSource soundEffect;
+    [SerializeField] private AudioSource music;
     [SerializeField] private AudioType[] type;
+
+    public AudioSource SoundEffect { get { return soundEffect; } }
+
     private void Awake()
     {
         if (instance == null)    //checking if instance is null 
@@ -27,12 +30,22 @@ public class Sound_Manager : MonoBehaviour
         AudioClip clip = GetAudioClip(audio);
         if (clip != null)
         {
-            Music.clip = clip;
-            Music.Play();
+            music.clip = clip;
+            music.Play();
         }
         else
         {
             Debug.LogError("Clip not found for audio type : " + audio);
+        }
+    }
+
+    public void StopMusic(AudioClips audio)
+    {
+        AudioClip clip = GetAudioClip(audio);
+        if (clip != null)
+        {
+            music.clip = clip;
+            music.Stop();
         }
     }
 
@@ -41,7 +54,7 @@ public class Sound_Manager : MonoBehaviour
         AudioClip clip = GetAudioClip(audio);
         if(clip != null)
         {
-            SoundEffect.PlayOneShot(clip);
+            soundEffect.PlayOneShot(clip);
         }
         else
         {

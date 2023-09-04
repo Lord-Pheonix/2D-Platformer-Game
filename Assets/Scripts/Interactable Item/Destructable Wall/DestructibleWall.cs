@@ -8,6 +8,7 @@ public class DestructibleWall : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PushableBox>() != null)
         {
+            Sound_Manager.Instance.Play(AudioClips.Sfx_WallDestruction);
             Instantiate(destroyedWall, transform.position, transform.rotation);
             Destroy(gameObject);
         }

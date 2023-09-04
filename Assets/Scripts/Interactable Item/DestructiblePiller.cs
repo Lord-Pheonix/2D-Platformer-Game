@@ -6,6 +6,7 @@ public class DestructiblePiller : MonoBehaviour
 
     public void DestroyPiller()
     {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_PillerDestruction);
         Instantiate(destroyedPiller, transform.position, transform.rotation);
         Destroy(gameObject);
     }

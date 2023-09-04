@@ -1,3 +1,4 @@
+using System.Net.Sockets;
 using UnityEngine;
 
 public class Player_Attack : MonoBehaviour
@@ -33,12 +34,14 @@ public class Player_Attack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && weaponObtained)
         {
+            Sound_Manager.Instance.Play(AudioClips.Sfx_PlayerAttack);
             PlayerAnimator.SetTrigger("Attack");
 
             Collider2D[] hitEnemy = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
             foreach (Collider2D enemy in hitEnemy)
             {
+                
                 enemy.GetComponent<BossEnemy_Health>().Losehealth(playerDamage);
                 //Debug.Log("we hit" + enemy.name);
             }

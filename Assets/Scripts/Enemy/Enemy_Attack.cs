@@ -57,6 +57,7 @@ public class Enemy_Attack : MonoBehaviour
 
     private void MeeleAttack()
     {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_BossEnemyMeeleAttack);
         Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, meeleAttackRange, PlayerLayer);
 
         foreach (Collider2D player in hitPlayer)
@@ -77,6 +78,7 @@ public class Enemy_Attack : MonoBehaviour
 
     private void Shoot()
     {
-            Instantiate(bullet, bullletpos.position, Quaternion.identity);
+        Sound_Manager.Instance.Play(AudioClips.Sfx_BossEnemyMeeleAttack);
+        Instantiate(bullet, bullletpos.position, Quaternion.identity);
     }
 }

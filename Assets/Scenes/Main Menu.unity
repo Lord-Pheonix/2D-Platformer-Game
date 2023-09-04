@@ -104,7 +104,7 @@ NavMeshSettings:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    serializedVersion: 2
+    serializedVersion: 3
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
@@ -117,7 +117,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    buildHeightMesh: 0
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
@@ -153,15 +153,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798dc8c4b3e69bb48b81e6ecf75f589c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundEffect: {fileID: 2142635920}
-  Music: {fileID: 1610879266}
+  soundEffect: {fileID: 2142635920}
+  music: {fileID: 1610879266}
   type:
   - audioType: 0
-    audioClip: {fileID: 8300000, guid: a4dc23583fb1dc84a89049f88b06efe8, type: 3}
+    audioClip: {fileID: 8300000, guid: 0651b56880a11ef45909b779443691aa, type: 3}
   - audioType: 1
+    audioClip: {fileID: 8300000, guid: 3a9ba69f03694d44a9968f5b7c4abb1c, type: 3}
+  - audioType: 2
+    audioClip: {fileID: 8300000, guid: a4dc23583fb1dc84a89049f88b06efe8, type: 3}
+  - audioType: 3
     audioClip: {fileID: 8300000, guid: df6d1af64fdebb04d80a54b27b720509, type: 3}
   - audioType: 4
-    audioClip: {fileID: 8300000, guid: 3a9ba69f03694d44a9968f5b7c4abb1c, type: 3}
+    audioClip: {fileID: 8300000, guid: 88ac5fcaaded1224484b71c9811f8bb1, type: 3}
+  - audioType: 5
+    audioClip: {fileID: 8300000, guid: d76c71e98617e1c41a5cdc490eb1bee1, type: 3}
+  - audioType: 6
+    audioClip: {fileID: 8300000, guid: 13de3c8b19190eb488622c2982f7e977, type: 3}
+  - audioType: 7
+    audioClip: {fileID: 8300000, guid: 88cf4c38c64a7b84f88a54036e698825, type: 3}
+  - audioType: 8
+    audioClip: {fileID: 8300000, guid: e5cb0976ee7cf93489107ede5175519b, type: 3}
+  - audioType: 9
+    audioClip: {fileID: 8300000, guid: ea217dc637f73b649a2866febb99c4a2, type: 3}
+  - audioType: 10
+    audioClip: {fileID: 8300000, guid: 55cf2d6b154ee6d4e87f7f87ac724172, type: 3}
+  - audioType: 11
+    audioClip: {fileID: 8300000, guid: 68c65aec95671b549be3b900cc305b1e, type: 3}
+  - audioType: 12
+    audioClip: {fileID: 8300000, guid: 3c9a4144f5db2c144a020c42598b4bf4, type: 3}
+  - audioType: 13
+    audioClip: {fileID: 8300000, guid: 335c62a6fbfebf84d821d960b0c5abaa, type: 3}
+  - audioType: 14
+    audioClip: {fileID: 8300000, guid: f911838f7d8347b47b1c821f6d3c98fc, type: 3}
+  - audioType: 15
+    audioClip: {fileID: 8300000, guid: 3be171efc7758c14fbbd5d2a11f944cb, type: 3}
+  - audioType: 16
+    audioClip: {fileID: 8300000, guid: 31b2284e8ab3f244182080ca7da474b7, type: 3}
+  - audioType: 17
+    audioClip: {fileID: 8300000, guid: eb9913efb3825f3488667a73f532fd30, type: 3}
+  - audioType: 18
+    audioClip: {fileID: 8300000, guid: 5c323608730601c4997c80260a5e05e8, type: 3}
+  - audioType: 19
+    audioClip: {fileID: 8300000, guid: 1300167911a825e4f8920368b94bb0d1, type: 3}
+  - audioType: 20
+    audioClip: {fileID: 8300000, guid: 3698c001a4b99aa43aa3750a1c33b979, type: 3}
+  - audioType: 21
+    audioClip: {fileID: 8300000, guid: 8d331b50969371c4db3319a915ef2cad, type: 3}
+  - audioType: 22
+    audioClip: {fileID: 8300000, guid: 1b46739dd2e72b043937117be94011c8, type: 3}
+  - audioType: 23
+    audioClip: {fileID: 8300000, guid: d6c663904e1c2b64ca9014c32c3775cf, type: 3}
+  - audioType: 24
+    audioClip: {fileID: 8300000, guid: e2dfd7d14d2c3a048b04b6bbc87c8cbb, type: 3}
+  - audioType: 25
+    audioClip: {fileID: 8300000, guid: 400c44a256b5eeb46897fd93bd481a00, type: 3}
+  - audioType: 26
+    audioClip: {fileID: 8300000, guid: a5c71d82307ccf942892b3c4e022cfe5, type: 3}
+  - audioType: 27
+    audioClip: {fileID: 8300000, guid: a6c4c61ff01314d4292154c9bc8697f0, type: 3}
 --- !u!81 &388298771
 AudioListener:
   m_ObjectHideFlags: 0
@@ -265,13 +315,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.8
+  m_Pitch: 1.41
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 200
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -497,6 +547,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7225315613506288197, guid: 8fbfc2c04991cbf4db2c8a5a0184db89,
@@ -610,4 +661,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fbfc2c04991cbf4db2c8a5a0184db89, type: 3}

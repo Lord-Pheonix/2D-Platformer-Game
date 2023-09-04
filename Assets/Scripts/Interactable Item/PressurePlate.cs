@@ -16,10 +16,15 @@ public class PressurePlate : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player_Controller>() != null || collision.gameObject.GetComponent<PushableBox>() != null)
         {
+            Sound_Manager.Instance.Play(AudioClips.Sfx_PressurePlateActivated);
             pressurePlate.SetBool("On", true);
 
             if(OpenDoor != null)
+            {
+                Sound_Manager.Instance.Play(AudioClips.Sfx_DoorOpening);
                 OpenDoor.SetTrigger("openDoor");
+            }
+                
             if (OpenPlatform != null)
                 OpenPlatform.SetTrigger("openPlatform");
 

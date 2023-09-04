@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class Level_Complete_Manager : MonoBehaviour
 {
-    [SerializeField] private GameObject Level_Complete_Menu;
+    [SerializeField] private GameObject level_Complete_Menu;
+    [SerializeField] private GameObject game_Complete_Menu;
 
     [Header("Level Complete Buttons")]
     [SerializeField] private Button nextLevel;
@@ -15,7 +16,8 @@ public class Level_Complete_Manager : MonoBehaviour
 
     private void Awake()
     {
-        Level_Complete_Menu.SetActive(false);
+        level_Complete_Menu.SetActive(false);
+        game_Complete_Menu.SetActive(false);
         levelCompleted = false;
 
         nextLevel.onClick.AddListener(NextLavel);
@@ -25,22 +27,31 @@ public class Level_Complete_Manager : MonoBehaviour
 
     public void LevelComplete()
     {
-        Level_Complete_Menu.SetActive(true);
+        level_Complete_Menu.SetActive(true);
+        levelCompleted = true;
+    }
+
+    public void GameComplete()
+    {
+        game_Complete_Menu?.SetActive(true);
         levelCompleted = true;
     }
 
     public void NextLavel()
     {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_LevelButtonClick);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Restart()
     {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_LevelButtonClick);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenu()
     {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_LevelButtonClick);
         SceneManager.LoadScene(0);
     }
 }

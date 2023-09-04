@@ -32,14 +32,16 @@ public class Level_Loader : MonoBehaviour
 
         switch(levelStatus)
         {
-            case LevelStatus.Locked    : //Debug.Log(levelName + " is locked" );
+            case LevelStatus.Locked    : Sound_Manager.Instance.Play(AudioClips.Sfx_LevelButtonClick);
+                                         //Debug.Log(levelName + " is locked" );
                                          break;
                                                             
-            case LevelStatus.Unlocked  : Sound_Manager.Instance.Play(AudioClips.sfx_LevelButtonClick);
+            case LevelStatus.Unlocked  : Sound_Manager.Instance.Play(AudioClips.Sfx_LevelButtonClick);
+                                         Sound_Manager.Instance.PlayMusic(AudioClips.Music_GameplayBackgroundMusic);
                                          SceneManager.LoadScene(levelName);       //load the next level scene as per there build Name
                                          break;
 
-            case LevelStatus.Completed : Sound_Manager.Instance.Play(AudioClips.sfx_LevelButtonClick);
+            case LevelStatus.Completed : Sound_Manager.Instance.Play(AudioClips.Sfx_LevelButtonClick);
                                          SceneManager.LoadScene(levelName);
                                          break;
 

@@ -193,16 +193,50 @@ public class Player_Controller : MonoBehaviour
     void PushingBox()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(handCheckCollider.position, handCheckRadius, pushableBoxLayer);
+
         if (colliders.Length > 0)
         {
-            ispushing = true;
-            //Debug.Log("Is touching");
+            ispushing = true;    
             PlayerAnimator.SetBool("Push", ispushing);
         }
         else
         {
             ispushing = false;
             PlayerAnimator.SetBool("Push", ispushing);
+        }
+
+        if(ispushing)
+        {
+            Sound_Manager.Instance.Play(AudioClips.Sfx_PushingBox);
+        }
+    }
+
+    private void PlayPlayerWalking1Sound()
+    {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_PlayerWalking);
+    }
+
+    private void PlayPlayerRunningSound()
+    {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_PlayerRunning);
+    }
+
+    private void PlayPlayerJumpSound()
+    {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_PlayerJump);
+    }
+
+    private void PlayPlayerLandSound()
+    {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_PlayerLand);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("AcidPoolArea"))
+        {
+            //Debug.Log("Entered Acid Pool Area");
+            Sound_Manager.Instance.Play(AudioClips.Music_AcidPoolArea);
         }
     }
 }

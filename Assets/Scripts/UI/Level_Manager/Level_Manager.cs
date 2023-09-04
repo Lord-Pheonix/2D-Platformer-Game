@@ -8,6 +8,9 @@ public class Level_Manager : MonoBehaviour
     public static Level_Manager Instance {  get { return instance; } }
 
     [SerializeField] private string[] totalLevel;
+
+    public string[] TotalLevel { get { return totalLevel; } }
+
     private void Awake()
     {
         if(instance == null)    //checking if instance is null 

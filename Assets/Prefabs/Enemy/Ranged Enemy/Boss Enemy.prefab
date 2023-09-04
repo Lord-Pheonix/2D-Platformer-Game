@@ -37,7 +37,7 @@ Transform:
   - {fileID: 5345429464390607548}
   - {fileID: 5345429464889363410}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5345429464300261347
 SpriteRenderer:
@@ -111,6 +111,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!60 &5345429464300261349
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -121,6 +122,25 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -243,6 +263,7 @@ PolygonCollider2D:
       - {x: -1.0909631, y: 1.3599998}
       - {x: -1.1205928, y: 1.3155553}
       - {x: -1.0909631, y: 1.3303702}
+  m_UseDelaunayMesh: 0
 --- !u!114 &5345429464300261351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +304,7 @@ MonoBehaviour:
   openDoor2: {fileID: 0}
   fillBar: {fileID: 0}
   healthbar: {fileID: 0}
-  health: 100
+  health: 1000
 --- !u!114 &5345429464300261344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebdf9b56a8bdfd4fa9329004daab608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemydamage: 1
+  enemydamage: 0
 --- !u!1 &5345429464390607549
 GameObject:
   m_ObjectHideFlags: 0

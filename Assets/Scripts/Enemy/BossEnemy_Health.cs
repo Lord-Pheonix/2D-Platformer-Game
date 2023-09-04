@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,11 +20,11 @@ public class BossEnemy_Health : MonoBehaviour
     public void Losehealth(int value)
     {
         health -= value;
-
         fillBar.fillAmount = health / 100;
 
         if (health <= 0)
         {
+            Sound_Manager.Instance.Play(AudioClips.Sfx_BossEnemyDeathSting);
             if(!died)
             {
                 died = true;
@@ -32,6 +33,18 @@ public class BossEnemy_Health : MonoBehaviour
                 //Debug.Log("Boss lost");
             } 
         }
+
+        if (died)
+        {
+            StartCoroutine(PlayDeathSound());
+        }
+            
+    }
+
+    private IEnumerator PlayDeathSound()
+    {
+        yield return new WaitForSeconds(2f);
+        Sound_Manager.Instance.Play(AudioClips.Sfx_BossEnemyDeath);
     }
 
     public void Destroy()
@@ -41,6 +54,7 @@ public class BossEnemy_Health : MonoBehaviour
 
     public void OpenDoor()
     {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_DoorOpening);
         openDoor1.SetTrigger("openDoor");
         openDoor2.SetTrigger("openDoor");
     }

@@ -42,6 +42,7 @@ public class Player_Health : MonoBehaviour
         {
             if(!dead)
             {
+                Sound_Manager.Instance.Play(AudioClips.Sfx_PlayerDeath);
                 animator.SetTrigger("Die");
                 //Debug.Log("Player lost");
                 GetComponent<Player_Controller>().enabled = false;

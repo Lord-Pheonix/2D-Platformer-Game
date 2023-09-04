@@ -28,6 +28,7 @@ public class Pause_Menu_Manager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            Sound_Manager.Instance.Play(AudioClips.Sfx_PauseButtonClick);
             if(GameIsPaused)
             {
                 Resume();
@@ -41,6 +42,7 @@ public class Pause_Menu_Manager : MonoBehaviour
 
     public void Resume()
     {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_BackButtonClick);
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;           //setting the speed of time passing to normal to free the time
         GameIsPaused = false;
@@ -55,12 +57,14 @@ public class Pause_Menu_Manager : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1f;
+        Sound_Manager.Instance.Play(AudioClips.Sfx_LevelButtonClick);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenu()
     {
         Time.timeScale = 1f;
+        Sound_Manager.Instance.Play(AudioClips.Sfx_LevelButtonClick);
         SceneManager.LoadScene(0);
     }
 }

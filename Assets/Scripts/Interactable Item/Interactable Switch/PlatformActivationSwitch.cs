@@ -14,6 +14,7 @@ public class PlatformActivationSwitch : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player_Controller>() != null)
         {
+            Sound_Manager.Instance.Play(AudioClips.Sfx_SwitchActivated);
             Switch.SetTrigger("Switch on");
             if(platform.activeSelf == false)
                 platform.SetActive(true);

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level_Complete_Controller : MonoBehaviour
 {
@@ -7,9 +8,24 @@ public class Level_Complete_Controller : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player_Controller>() != null)
         {
-            //Debug.Log("Level Complete");
-            Level_Manager.Instance.SetCurrentLevelCompleted();
-            Level_Complete_Manager.LevelComplete();
+            if (SceneManager.GetActiveScene().buildIndex == 4)
+            {
+                Level_Complete_Manager.GameComplete();
+                Invoke(nameof(LoadCreditScene), 1f);
+            }
+            else
+            {
+                //Debug.Log("Level Complete");
+                Sound_Manager.Instance.Play(AudioClips.Sfx_PlayerVictory);
+                Level_Manager.Instance.SetCurrentLevelCompleted();
+                Level_Complete_Manager.LevelComplete();
+            }
         }
+    }
+
+    private void LoadCreditScene()
+    {
+        //Debug.Log("level Complete");
+        SceneManager.LoadScene(5);
     }
 }

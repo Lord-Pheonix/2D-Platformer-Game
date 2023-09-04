@@ -28,16 +28,19 @@ public class Game_Over_Manager : MonoBehaviour
 
     public void Restart()
     {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_LevelButtonClick);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenu()
-    { 
+    {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_LevelButtonClick);
         SceneManager.LoadScene(0);
     }
 
     public void Quit()
     {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_LevelButtonClick);
         Application.Quit();
     }
 }

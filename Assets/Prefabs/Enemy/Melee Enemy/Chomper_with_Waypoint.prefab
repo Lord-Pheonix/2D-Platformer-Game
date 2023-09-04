@@ -133,6 +133,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4709513968984007573}
     m_Modifications:
     - target: {fileID: 2051350586397608415, guid: 572f0d0b01f670348b0f12bae1ac2cf5,
@@ -201,6 +202,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2051350586397608415, guid: 572f0d0b01f670348b0f12bae1ac2cf5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1154497107}
+    - targetCorrespondingSourceObject: {fileID: 2051350586397608415, guid: 572f0d0b01f670348b0f12bae1ac2cf5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4709513970158080563}
   m_SourcePrefab: {fileID: 100100000, guid: 572f0d0b01f670348b0f12bae1ac2cf5, type: 3}
 --- !u!1 &4075872056261798631 stripped
 GameObject:
@@ -220,7 +232,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebdf9b56a8bdfd4fa9329004daab608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemydamage: 1
+  enemydamage: 1
+  EnemylayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  TraplayerMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!114 &4709513970158080563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +254,6 @@ MonoBehaviour:
   points:
   - {fileID: 4709513969082483824}
   - {fileID: 4709513968258993394}
-  nextPoint: 0
   speed: 1.5
 --- !u!4 &5330626432852995099 stripped
 Transform:
