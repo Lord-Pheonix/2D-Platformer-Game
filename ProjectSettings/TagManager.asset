@@ -3,21 +3,25 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Box
+  - water
+  - WeaponHolder
+  - HitPlace
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - PushableBox
+  - Points
+  - BossEnemy
+  - Enemy
+  - Trap
+  - AcidWater
   - 
   - 
   - 
@@ -38,6 +42,36 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Sky
+    uniqueID: 3952603289
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Back theme
+    uniqueID: 3183304697
+    locked: 0
+  - name: BackGround
+    uniqueID: 4012281635
+    locked: 0
+  - name: Background Props
+    uniqueID: 4216561825
+    locked: 0
+  - name: Boss ForeGround
+    uniqueID: 3751087203
+    locked: 0
+  - name: ForeGround
+    uniqueID: 301896813
+    locked: 0
+  - name: Duplicate Foreground
+    uniqueID: 1151622623
+    locked: 0
+  - name: Foreground Props
+    uniqueID: 404522891
+    locked: 0
+  - name: PLayer
+    uniqueID: 681767967
+    locked: 0
+  - name: Very Front Layer
+    uniqueID: 4274691809
     locked: 0
