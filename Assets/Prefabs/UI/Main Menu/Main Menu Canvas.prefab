@@ -1312,7 +1312,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Controls : \nMovement - A,S or Left & Right Arrow\nSprint - Left Shift\nJump
+  m_text: "Controls : \nMovement - A,D or Left & Right Arrow\nSprint - Left Shift\nJump
     - Space\nCrouch - Left Control\nMeele Attack - Left Mouse\n\nHint :\n- Press
     Switch to activate or deactivate platform or to destroy breakable pillers.\n-
     Press Pressure Plate to Open Door.\n- Use Pushable box as a bridge or to destroy
