@@ -36,6 +36,7 @@ public class Player_Controller : MonoBehaviour
     private bool isgrounded = false;
     private bool ispushing = false;
     private bool crouch;
+    public bool PlayerInCutscene = false;
 
     private void Awake()
     {
@@ -71,7 +72,7 @@ public class Player_Controller : MonoBehaviour
         #endregion
 
         //if we press jump button player will jump
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && PlayerInCutscene != true)
         {
             Jump();
         }
@@ -80,11 +81,11 @@ public class Player_Controller : MonoBehaviour
         PlayerAnimator.SetFloat("yVelocity", rb.velocity.y);
 
         //if left control key is pressed player will crounch
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl) && PlayerInCutscene != true)
         {
             crouch = true;
         }
-        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        else if (Input.GetKeyUp(KeyCode.LeftControl) && PlayerInCutscene != true)
         {
             crouch = false;
         }
@@ -204,11 +205,6 @@ public class Player_Controller : MonoBehaviour
             ispushing = false;
             PlayerAnimator.SetBool("Push", ispushing);
         }
-
-        if(ispushing)
-        {
-            Sound_Manager.Instance.Play(AudioClips.Sfx_PushingBox);
-        }
     }
 
     private void PlayPlayerWalking1Sound()
@@ -231,12 +227,26 @@ public class Player_Controller : MonoBehaviour
         Sound_Manager.Instance.Play(AudioClips.Sfx_PlayerLand);
     }
 
+    private void PlayPushingBoxSound()
+    {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_PushingBox);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("AcidPoolArea"))
         {
             //Debug.Log("Entered Acid Pool Area");
-            Sound_Manager.Instance.Play(AudioClips.Music_AcidPoolArea);
+            Sound_Manager.Instance.PlayMusic(AudioClips.Sfx_AcidPoolArea);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("AcidPoolArea"))
+        {
+            //Debug.Log("Entered Acid Pool Area");
+            Sound_Manager.Instance.PlayMusic(AudioClips.Music_GameplayBackgroundMusic);
         }
     }
 }

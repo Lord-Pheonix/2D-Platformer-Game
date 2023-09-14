@@ -26,7 +26,9 @@ public class BossEntryCutscene : MonoBehaviour
                 MainCamera.SetActive(false);
                 TimelineCamera.SetActive(true);
                 BossEntry.Play();
+                player.GetComponent<Player_Controller>().PlayerInCutscene = true;
                 player.GetComponent<Player_Controller>().Speed = 0f;
+                player.GetComponent<Player_Attack>().enabled = false;
                 door2.SetTrigger("closeDoor");
             }   
         }
@@ -46,7 +48,9 @@ public class BossEntryCutscene : MonoBehaviour
             BossEntry.enabled = false;
             MainCamera.SetActive(true);
             TimelineCamera.SetActive(false);
+            player.GetComponent<Player_Controller>().PlayerInCutscene = false;
             player.GetComponent<Player_Controller>().Speed = 1f;
+            player.GetComponent <Player_Attack>().enabled = true;
             this.enabled = false;
         }
     }

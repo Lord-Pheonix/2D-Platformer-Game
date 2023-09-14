@@ -42,6 +42,7 @@ public class Level_Loader : MonoBehaviour
                                          break;
 
             case LevelStatus.Completed : Sound_Manager.Instance.Play(AudioClips.Sfx_LevelButtonClick);
+                                         Sound_Manager.Instance.PlayMusic(AudioClips.Music_GameplayBackgroundMusic);
                                          SceneManager.LoadScene(levelName);
                                          break;
 

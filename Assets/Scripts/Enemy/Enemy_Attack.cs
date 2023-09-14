@@ -34,11 +34,11 @@ public class Enemy_Attack : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if(Player_Health.currentHealth != 0  && BossEnemy_Health.health > 0)
+        if(Player_Health.currentHealth != 0  && BossEnemy_Health.CurrentHealth > 0)
         {
             if (distance > range1 && distance < range2)
             {
-                if (timer > 1.5)
+                if (timer > 2.5)
                 {
                     timer = 0;
                     BossAnimator.SetTrigger("BossRangedAttack");
@@ -63,7 +63,7 @@ public class Enemy_Attack : MonoBehaviour
         foreach (Collider2D player in hitPlayer)
         {
             player.GetComponent<Player_Health>().LoseLife(BossDamage);
-            Debug.Log("we hit" + player.name);
+            //Debug.Log("we hit" + player.name);
         }
         //Debug.Log("doing meele attack");
     }

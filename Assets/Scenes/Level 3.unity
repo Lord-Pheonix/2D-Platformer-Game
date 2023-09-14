@@ -30771,7 +30771,7 @@ GameObject:
   - component: {fileID: 480993229}
   - component: {fileID: 480993231}
   - component: {fileID: 480993230}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tileset_Alien_FloorSingleMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

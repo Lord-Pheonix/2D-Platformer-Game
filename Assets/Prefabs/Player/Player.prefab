@@ -397,6 +397,7 @@ MonoBehaviour:
     m_Bits: 128
   jumpPower: 7.2
   Speed: 1
+  PlayerInCutscene: 0
 --- !u!114 &1371509085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,4 +448,4 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  playerDamage: 5
+  playerDamage: 17

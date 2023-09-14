@@ -11,18 +11,21 @@ public class BossEnemy_Health : MonoBehaviour
     private Animator bossEnemyAnimator;
     private bool died;
 
-    public float health;
+    public float MaxHealth = 1000;
+    public float CurrentHealth;
+    
     private void Awake()
     {
         bossEnemyAnimator = GetComponent<Animator>();
+        CurrentHealth = MaxHealth;
     }
 
     public void Losehealth(int value)
     {
-        health -= value;
-        fillBar.fillAmount = health / 100;
+        CurrentHealth -= value;
+        fillBar.fillAmount = CurrentHealth / MaxHealth;
 
-        if (health <= 0)
+        if (CurrentHealth <= 0)
         {
             Sound_Manager.Instance.Play(AudioClips.Sfx_BossEnemyDeathSting);
             if(!died)
@@ -55,7 +58,10 @@ public class BossEnemy_Health : MonoBehaviour
     public void OpenDoor()
     {
         Sound_Manager.Instance.Play(AudioClips.Sfx_DoorOpening);
-        openDoor1.SetTrigger("openDoor");
-        openDoor2.SetTrigger("openDoor");
+        if(died)
+        {
+            openDoor1.SetTrigger("openDoor");
+            openDoor2.SetTrigger("openDoor");
+        }
     }
 }

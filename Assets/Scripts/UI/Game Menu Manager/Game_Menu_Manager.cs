@@ -98,6 +98,7 @@ public class Game_Menu_Manager: MonoBehaviour
 
     private void ResetLevels()
     {
+        Sound_Manager.Instance.Play(AudioClips.Sfx_StartButtonClick);
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
         Level_Manager.Instance.SetLevelStatus(Level_Manager.Instance.TotalLevel[0], LevelStatus.Unlocked);

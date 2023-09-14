@@ -12,7 +12,7 @@ public enum AudioClips
     Sfx_PlayerLand,
     Sfx_PlayerHurt,
     Sfx_PauseButtonClick,
-    Music_AcidPoolArea,
+    Sfx_AcidPoolArea,
     Sfx_SwitchActivated,
     Sfx_PressurePlateActivated,
     Sfx_DoorOpening,
@@ -27,5 +27,5 @@ public enum AudioClips
     Sfx_BossEnemyMeeleAttack,
     Sfx_BossEnemyDeath,
     Sfx_BossEnemyDeathSting,
-    Music_EndCredit
+    Music_EndCredit,
 }

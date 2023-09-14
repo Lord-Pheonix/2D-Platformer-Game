@@ -4371,7 +4371,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Complete
+  m_text: 'You ESCAPED
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a5529d97defce2446b4ac1c367b65f7e, type: 2}
   m_sharedMaterial: {fileID: -7741019808505963046, guid: a5529d97defce2446b4ac1c367b65f7e,
