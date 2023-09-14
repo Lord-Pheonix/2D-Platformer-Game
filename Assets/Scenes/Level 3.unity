@@ -36451,6 +36451,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 745663905}
     m_Modifications:
+    - target: {fileID: 3109494048340488113, guid: 2747890ef2ac2ba41b7c72b1ec253b56,
+        type: 3}
+      propertyPath: enemydamage
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3109494048340488124, guid: 2747890ef2ac2ba41b7c72b1ec253b56,
         type: 3}
       propertyPath: m_RootOrder
@@ -79671,7 +79676,7 @@ PrefabInstance:
     - target: {fileID: 4709513968258993394, guid: cb182f3fb28a2514d8696970335bd8b7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.77
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 4709513968984007573, guid: cb182f3fb28a2514d8696970335bd8b7,
         type: 3}

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1363066738768070945}
+  - component: {fileID: 5653446683836275199}
   m_Layer: 0
   m_Name: Spikes Type 1
   m_TagString: Untagged
@@ -33,8 +34,21 @@ Transform:
   - {fileID: 9203407091138028027}
   - {fileID: 9203407090751553393}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5653446683836275199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049148166237370056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebdf9b56a8bdfd4fa9329004daab608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemydamage: 3
 --- !u!1 &9203407089863851908
 GameObject:
   m_ObjectHideFlags: 0
