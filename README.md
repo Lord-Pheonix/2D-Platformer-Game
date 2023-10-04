@@ -11,18 +11,19 @@
 
 # My Work
 
-− Implemented fully customizable levels using Tile Maps as well as C# classes to Detect Win condition.
-− A simple AI for Enemy for patrolling as well as new state for Boss Enemy i.e., Attacking. 
-− Implemented a basic Unity Timeline for boss entry as well as Playerprefs to save the data of locked and 
+- Implemented fully customizable levels using Tile Maps as well as C# classes to Detect Win condition.
+- A simple AI for Enemy for patrolling as well as new state for Boss Enemy i.e., Attacking. 
+- Implemented a basic Unity Timeline for boss entry as well as Playerprefs to save the data of locked and 
 unlocked levels
 - Implemented Singleton for level manager and sound manager for easy communication between them.
 - used C# and unity concepts for creating all the mechanisms.
 
-# Video 
+# Video and Play
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/E4QKR73hpsg?si=8jV4g1YeVdL0b5eW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+- Watch small video of game : <a href="https://www.youtube.com/watch?v=E4QKR73hpsg" target="">the explorer</a>
+- Want to play : <a href="https://kingpheonix.itch.io/the-explorer" target="">Click Here</a>
 
-#ScreenShots
+# ScreenShots
 
 ![Screenshot (286)](https://github.com/Tivra-Raj/2D-Platformer-Game/assets/107213542/5f7c7101-7157-4cb5-871a-91bc4f9ee476)
 
@@ -30,6 +31,6 @@ unlocked levels
 
 ![Screenshot (292)](https://github.com/Tivra-Raj/2D-Platformer-Game/assets/107213542/2f2de296-1a8c-4cba-9488-f095c9cffee5)
 
-#Credits
+# Credits
 
 - Thanks Mayank Grover, Malhar Devasthali, and Arindam bharti for all the supports. 
