@@ -15,7 +15,7 @@
 - A simple AI for Enemy for patrolling as well as new state for Boss Enemy i.e., Attacking. 
 - Implemented a basic Unity Timeline for boss entry as well as Playerprefs to save the data of locked and 
 unlocked levels
-- Implemented Singleton for level manager and sound manager for easy communication between them.
+- Implemented Singleton for level manager and sound manager for easy communication between scripts.
 - used C# and unity concepts for creating all the mechanisms.
 
 # Video and Play
