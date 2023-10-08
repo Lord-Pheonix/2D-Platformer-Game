@@ -20,8 +20,8 @@ unlocked levels
 
 # Video and Play
 
-- Watch small video of game : <a href="https://www.youtube.com/watch?v=E4QKR73hpsg" target="">the explorer</a>
-- Want to play : <a href="https://kingpheonix.itch.io/the-explorer" target="">Click Here</a>
+- Watch small video of game : <a href="https://www.youtube.com/watch?v=E4QKR73hpsg" target="_blank">the explorer</a>
+- Want to play : <a href="https://kingpheonix.itch.io/the-explorer" target="_blank">Click Here</a>
 
 # ScreenShots
 
